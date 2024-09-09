@@ -1,0 +1,1524 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+  --mermaid-theme: night;
+}
+
+[lang='mermaid'] .label {
+  color: #333;
+}
+
+/* CSS Document */
+
+/** code highlight */
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-operator,
+.cm-s-inner .cm-property {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C88FD0;
+}
+
+.cm-s-inner .cm-tag {
+    color: #7DF46A;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #7575E4;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid #b8bfc6;
+    z-index: 3;
+}
+
+.cm-s-inner .cm-string {
+    color: #D26B6B;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #DA924A;
+}
+
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+    color: #8d8df0;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #57ac57;
+}
+
+.cm-s-inner .cm-hr {
+    color: #d8d5d5;
+}
+
+.cm-s-inner .cm-link {
+    color: #d3d3ef;
+}
+
+.cm-s-inner .cm-negative {
+    color: #d95050;
+}
+
+.cm-s-inner .cm-positive {
+    color: #50e650;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f50;
+}
+
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+    color: #b7b3b3;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #f3b3f8;
+}
+
+.cm-s-inner .cm-bracket {
+    color: #997;
+}
+
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+    color: #84B6CB;
+}
+
+.cm-s-inner .cm-number {
+    color: #64AB8F;
+}
+
+.cm-s-inner .cm-variable {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #9FBAD5;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #1cc685;
+}
+
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
+    background: #4a89dc;
+    color: #fff !important;
+    text-shadow: none;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
+}
+
+/* CSS Document */
+
+/** markdown source **/
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property
+{
+    color: #cebcca;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor{
+    border-left: 3px solid #b8bfc6;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #9FB1FF;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #A7A7D9
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+    color: #848695;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #95B94B;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(51, 51, 51, 0.72);
+}
+
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code {
+	color: #8aa1e1;
+}@import "";
+@import "";
+@import "";
+
+:root {
+    --bg-color:  #363B40;
+    --side-bar-bg-color: #2E3033;
+    --text-color: #b8bfc6;
+
+    --select-text-bg-color:#4a89dc;
+
+    --item-hover-bg-color: #0a0d16;
+    --control-text-color: #b7b7b7;
+    --control-text-hover-color: #eee;
+    --window-border: 1px solid #555;
+
+    --active-file-bg-color: rgb(34, 34, 34);
+    --active-file-border-color: #8d8df0;
+
+    --primary-color: #a3d5fe;
+
+    --active-file-text-color: white;
+    --item-hover-bg-color: #70717d;
+    --item-hover-text-color: white;
+    --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+
+    --search-select-bg-color: #428bca;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #363B40;
+    background: var(--bg-color);
+    fill: currentColor;
+    line-height: 1.625rem;
+}
+
+#write {
+    max-width: 914px;
+}
+
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+    color: #b8bfc6;
+    border-color: transparent;
+}
+
+div.code-tooltip,
+.md-hover-tip .md-arrow:after {
+    background: #333;
+}
+
+.native-window #md-notification {
+    border: 1px solid #70717d;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #333;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+}
+
+hr {
+    height: 2px;
+    border: 0;
+    margin: 24px 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lucida Grande", "Corbel", sans-serif;
+    font-weight: normal;
+    clear: both;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #DEDEDE
+}
+
+h1 {
+    font-size: 2.5rem;
+    /* 36px */
+    line-height: 2.75rem;
+    /* 40px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 1.63rem;
+    /* 24px */
+    line-height: 1.875rem;
+    /* 30px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* 18px */
+    line-height: 1.5rem;
+    /* 24px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.12rem;
+    /* 16px */
+    line-height: 1.375rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: white;
+}
+
+h5 {
+    font-size: 0.97rem;
+    /* 16px */
+    line-height: 1.25rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 0.93rem;
+    /* 16px */
+    line-height: 1rem;
+    /* 16px */
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+@media (min-width: 980px) {
+    h3.md-focus:before,
+    h4.md-focus:before,
+    h5.md-focus:before,
+    h6.md-focus:before {
+        color: #ddd;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        position: absolute;
+        left: -1.642857143rem;
+        top: .357142857rem;
+        float: left;
+        font-size: 9px;
+        padding-left: 2px;
+        padding-right: 2px;
+        vertical-align: bottom;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    h3.md-focus:before {
+        content: 'h3';
+    }
+
+    h4.md-focus:before {
+        content: 'h4';
+    }
+
+    h5.md-focus:before {
+        content: 'h5';
+        top: 0px;
+    }
+
+    h6.md-focus:before {
+        content: 'h6';
+        top: 0px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    outline: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+sup.md-footnote {
+    background-color: #555;
+    color: #ddd;
+}
+
+p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p,
+ul,
+dd,
+ol,
+hr,
+address,
+pre,
+table,
+iframe,
+.wp-caption,
+.wp-audio-shortcode,
+.wp-video-shortcode {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+::-moz-selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+ul,
+ol {
+    padding: 0 0 0 1.875rem;
+    /* 30px */
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0;
+}
+
+b,
+th,
+dt,
+strong {
+    font-weight: bold;
+}
+
+i,
+em,
+dfn,
+cite {
+    font-style: italic;
+}
+
+blockquote {
+    padding-left: 1.875rem;
+    margin: 0 0 1.875rem 1.875rem;
+    border-left: solid 2px #474d54;
+    padding-left: 30px;
+    margin-top: 35px;
+}
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-size: 0.875em;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code,
+tt,
+var {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+pre.md-fences {
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    background: #333;
+}
+
+.CodeMirror-gutters {
+    background: #333;
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
+}
+
+code,
+kbd,
+tt,
+var {
+    padding: 2px 5px;
+}
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+a {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+hr {
+    background: #474d54;
+    /* variable */
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.md-inline-math script {
+    color: #81b1db;
+}
+
+b,
+th,
+dt,
+strong {
+    color: #DEDEDE;
+    /* variable */
+}
+
+mark {
+    background: #D3D40E;
+}
+
+blockquote {
+    color: #9DA2A6;
+}
+
+table a {
+    color: #DEDEDE;
+    /* variable */
+}
+
+th,
+td {
+    border: solid 1px #474d54;
+    /* variable */
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.md-task-list-item {
+    padding-left: 1.25rem;
+}
+
+.md-task-list-item > input {
+    top: auto;
+}
+
+.md-task-list-item > input:before {
+    content: "";
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #b8bfc6;
+    background-color: #363B40;
+    margin-top: -0.4rem;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
+    content: '\221A';
+    /*◘*/
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    color: #DEDEDE;
+}
+
+/** quick open **/
+.auto-suggest-container {
+    border: 0px;
+    background-color: #525C65;
+}
+
+#typora-quick-open {
+    background-color: #525C65;
+}
+
+#typora-quick-open input{
+    background-color: #525C65;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.typora-quick-open-item {
+    background-color: inherit;
+    color: inherit;
+}
+
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
+    background-color: #4D8BDB;
+    color: white;
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(77, 139, 219, 0.8);
+}
+
+.typora-search-spinner > div {
+  background-color: #fff;
+}
+
+#write pre.md-meta-block {
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding-bottom: 0.6em;
+    line-height: 1.6em;
+}
+
+.btn,
+.btn .btn-default {
+    background: transparent;
+    color: #b8bfc6;
+}
+
+.ty-table-edit {
+    border-top: 1px solid gray;
+    background-color: #363B40;
+}
+
+.popover-title {
+    background: transparent;
+}
+
+.md-image>.md-meta {
+    color: #BBBBBB;
+    background: transparent;
+}
+
+.md-expand.md-image>.md-meta {
+    color: #DDD;
+}
+
+#write>h3:before,
+#write>h4:before,
+#write>h5:before,
+#write>h6:before {
+    border: none;
+    border-radius: 0px;
+    color: #888;
+    text-decoration: underline;
+    left: -1.4rem;
+    top: 0.2rem;
+}
+
+#write>h3.md-focus:before {
+    top: 2px;
+}
+
+#write>h4.md-focus:before {
+    top: 2px;
+}
+
+.md-toc-item {
+    color: #A8C2DC;
+}
+
+#write div.md-toc-tooltip {
+    background-color: #363B40;
+}
+
+.dropdown-menu .btn:hover,
+.dropdown-menu .btn:focus,
+.md-toc .btn:hover,
+.md-toc .btn:focus {
+    color: white;
+    background: black;
+}
+
+#toc-dropmenu {
+    background: rgba(50, 54, 59, 0.93);
+    border: 1px solid rgba(253, 253, 253, 0.15);
+}
+
+#toc-dropmenu .divider {
+    background-color: #9b9b9b;
+}
+
+.outline-expander:before {
+    top: 2px;
+}
+
+#typora-sidebar {
+    box-shadow: none;
+    border-right: 1px dashed;
+    border-right: none;
+}
+
+.sidebar-tabs {
+    border-bottom:0;
+}
+
+#typora-sidebar:hover .outline-title-wrapper {
+    border-left: 1px dashed;
+}
+
+.outline-title-wrapper .btn {
+    color: inherit;
+}
+
+.outline-item:hover {
+    border-color: #363B40;
+    background-color: #363B40;
+    color: white;
+}
+
+h1.md-focus .md-attr,
+h2.md-focus .md-attr,
+h3.md-focus .md-attr,
+h4.md-focus .md-attr,
+h5.md-focus .md-attr,
+h6.md-focus .md-attr,
+.md-header-span .md-attr {
+    color: #8C8E92;
+    display: inline;
+}
+
+.md-comment {
+    color: #5a95e3;
+    opacity: 0.8;
+}
+
+.md-inline-math svg {
+    color: #b8bfc6;
+}
+
+#math-inline-preview .md-arrow:after {
+    background: black;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 0;
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-content input {
+    background-color: rgba(26, 21, 21, 0.51);
+    color: white;
+}
+
+.modal-content .input-group-addon {
+    color: white;
+}
+
+.modal-backdrop {
+    background-color: rgba(174, 174, 174, 0.7);
+}
+
+.modal-content .btn-primary {
+    border-color: var(--primary-color);
+}
+
+.md-table-resize-popover {
+    background-color: #333;
+}
+
+.form-inline .input-group .input-group-addon {
+    color: white;
+}
+
+#md-searchpanel {
+    border-bottom: 1px dashed grey;
+}
+
+/** UI for electron */
+
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
+    background-color: #42464A;
+}
+
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: #777777;
+    opacity: 1;
+}
+
+footer {
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        border-top: none;
+    }
+    footer:hover {
+        color: inherit;
+    }
+}
+
+#file-info-file-path .file-info-field-value:hover {
+    background-color: #555;
+    color: #dedede;
+}
+
+.megamenu-content,
+.megamenu-opened header {
+    background: var(--bg-color);
+}
+
+.megamenu-menu-panel h2,
+.megamenu-menu-panel h1,
+.long-btn {
+    color: inherit;
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px grey solid;
+}
+
+.megamenu-menu-panel .dropdown-menu > li > a {
+    color: inherit;
+    background-color: #2F353A;
+    text-decoration: none;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: inherit;
+    font-weight: bold;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: white;
+}
+
+.modal-footer .btn-default, 
+.modal-footer .btn-primary,
+.modal-footer .btn-default:not(:hover) {
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.btn-primary {
+    color: white;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: white;
+    border: 1px solid #ddd;
+    background-color: inherit;
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #eee;
+    background: transparent;
+}
+
+.mouse-hover .toolbar-icon.btn:hover,
+#w-full.mouse-hover,
+#w-pin.mouse-hover {
+    background-color: inherit;
+}
+
+.typora-node::-webkit-scrollbar {
+    width: 5px;
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical {
+    background: rgba(250, 250, 250, 0.3);
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(250, 250, 250, 0.5);
+}
+
+#w-unpin {
+    background-color: #4182c4;
+}
+
+#top-titlebar, #top-titlebar * {
+    color: var(--item-hover-text-color);
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+#footer-word-count:hover,
+.ty-show-word-count #footer-word-count {
+    background: #333333;
+}
+
+#toggle-sourceview-btn:hover {
+    color: #eee;
+    background: #333333;
+}
+
+/** focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
+    opacity: #686868 !important;
+}
+
+.on-focus-mode li[cid]:not(.md-focus-container){
+    color: #686868;
+}
+
+.on-focus-mode .md-fences.md-focus .CodeMirror-code>*:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+    color: #fff;
+}
+
+.on-focus-mode #typora-source .CodeMirror-code>*:not(.CodeMirror-activeline) * {
+    color: #686868 !important;
+}
+
+
+/*diagrams*/
+#write .md-focus .md-diagram-panel {
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
+}
+
+.md-diagram-panel-error {
+    color: #f1908e;
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    color: #eee;
+}
+
+.sidebar-footer-item:hover,
+.footer-item:hover {
+    background: inherit;
+    color: white;
+}
+
+.ty-side-sort-btn.active,
+.ty-side-sort-btn:hover,
+.selected-folder-menu-item a:after {
+    color: white;
+}
+
+#sidebar-files-menu {
+    border:solid 1px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+    background-color: var(--bg-color);
+}
+
+.file-list-item {
+    border-bottom:none;
+}
+
+.file-list-item-summary {
+    opacity: 1;
+}
+
+.file-list-item.active:first-child {
+    border-top: none;
+}
+
+.file-node-background {
+    height: 32px;
+}
+
+.file-library-node.active>.file-node-content,
+.file-list-item.active {
+    color: white;
+    color: var(--active-file-text-color);
+}
+
+.file-library-node.active>.file-node-background{
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+.file-list-item.active {
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+
+#ty-tooltip {
+    background-color: black;
+    color: #eee;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
+}
+
+footer.ty-footer {
+    border-color: #656565;
+}
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+.ty-preferences .btn-default:hover {
+    background: #57616b;
+}
+
+.ty-preferences select {
+    border: 1px solid #989698;
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active,
+.export-item.active,
+.export-items-list-control,
+.export-detail {
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #333;
+    background: #333;
+    line-height: 22px;
+    border-radius: 6px;
+    color: white;
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+.html-for-mac .file-node-open-state, .html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+.nav-group-item:active {
+    background-color: #474d54 !important;
+}
+
+.md-search-hit {
+    background: rgba(199, 140, 60, 0.81);
+    color: #eee;
+}
+
+.md-search-hit * {
+    color: #eee;
+}
+
+#md-searchpanel input {
+    color: white;
+}
+
+.modal-backdrop.in {
+    opacity: 1;
+    backdrop-filter: blur(1px);
+}
+
+.clear-btn-icon {
+    top: 8px;
+}
+
+/* try fix https://github.com/typora/typora-issues/issues/5253 */
+.file-node-expanded>.file-node-children {
+    display: grid;
+  }
+
+.md-alert-text-note {
+    color: rgb(47, 129, 247);
+}
+.md-alert-text-important {
+    color: rgb(163, 113, 247);
+}
+.md-alert-text-warning {
+    color:  rgb(210, 153, 34);
+}
+
+
+</style><title>C++PrimerPlus编程笔记</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='c++-primer-plus'><span>C++ Primer Plus</span></h1><h2 id='第一章-预备知识'><span>第一章 预备知识</span></h2><h3 id='11-c++简史'><span>1.1 C++简史</span></h3><h4 id='121-c语言'><span>1.2.1 C语言</span></h4><h4 id='122-c语言编程原理'><span>1.2.2 C语言编程原理</span></h4><h4 id='123-面向对象编程'><span>1.2.3 面向对象编程</span></h4><h4 id='124-c++和泛型编程'><span>1.2.4 C++和泛型编程</span></h4><h4 id='125-c++的起源'><span>1.2.5 C++的起源</span></h4><h3 id='13-可移植性和标准'><span>1.3 可移植性和标准</span></h3><h4 id='131-c++的发展'><span>1.3.1 C++的发展</span></h4><h4 id='132-本书遵循的c++标准'><span>1.3.2 本书遵循的C++标准</span></h4><h3 id='14-程序创建的技巧'><span>1.4 程序创建的技巧</span></h3><h4 id='141-创建源代码文件'><span>1.4.1 创建源代码文件</span></h4><h5 id='c++命名规范'><span>C++命名规范</span></h5><blockquote><p><span>在C++（以及大多数编程语言）中，命名规范是一个非常重要的方面，它不仅关乎代码的可读性，还直接影响到代码的维护性和团队协作效率。下面将详细介绍一些C++中关于命名规范的常见约定和最佳实践。</span></p></blockquote><h6 id='1-命名风格'><span>1. 命名风格</span></h6><p><span>C++社区普遍接受几种不同的命名风格，其中最著名的有：</span></p><ul><li><p><strong><span>CamelCase（驼峰命名法）</span></strong><span>：</span></p><ul><li><p><strong><span>小驼峰命名法（lowerCamelCase）</span></strong><span>：第一个单词首字母小写，后续单词首字母大写。常用于变量名、函数名等。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-variable">myVariable</span>;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">void</span> <span class="cm-def">myFunction</span>();</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 52px;"></div><div class="CodeMirror-gutters" style="display: none; height: 52px;"></div></div></div></pre></li><li><p><strong><span>大驼峰命名法（UpperCamelCase）</span></strong><span>：所有单词首字母都大写，也称为PascalCase。常用于类名、结构体名、枚举类型等。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">MyClass</span> {};</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">struct</span> <span class="cm-def">MyStruct</span> {};</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">enum</span> <span class="cm-def">MyEnum</span> {};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 78px;"></div><div class="CodeMirror-gutters" style="display: none; height: 78px;"></div></div></div></pre></li></ul></li><li><p><strong><span>下划线分隔（snake_case）</span></strong><span>：单词之间用下划线分隔，常用于常量名、宏定义等。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-variable-3">int</span> <span class="cm-variable">MAX_VALUE</span> <span class="cm-operator">=</span> <span class="cm-number">100</span>;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define PI 3.14159</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 52px;"></div><div class="CodeMirror-gutters" style="display: none; height: 52px;"></div></div></div></pre></li></ul><h6 id='2-命名约定'><span>2. 命名约定</span></h6><ul><li><p><strong><span>变量命名</span></strong><span>：</span></p><ul><li><p><span>使用有意义的名称，避免使用单个字符（除了循环变量如</span><code>i</code><span>, </span><code>j</code><span>, </span><code>k</code><span>等）。</span></p></li><li><p><span>使用小驼峰命名法。</span></p></li><li><p><span>对于布尔变量，可以使用</span><code>is</code><span>, </span><code>has</code><span>, </span><code>can</code><span>等前缀来表明其性质，如</span><code>isVisible</code><span>, </span><code>hasData</code><span>。</span></p></li></ul></li><li><p><strong><span>函数命名</span></strong><span>：</span></p><ul><li><p><span>遵循小驼峰命名法。</span></p></li><li><p><span>动词或动词短语描述函数的行为。</span></p></li><li><p><span>如果函数返回一个布尔值，则函数名可以是一个问题，如</span><code>isValid()</code><span>, </span><code>isEmpty()</code><span>。</span></p></li></ul></li><li><p><strong><span>类命名</span></strong><span>：</span></p><ul><li><p><span>使用大驼峰命名法（PascalCase）。</span></p></li><li><p><span>类名应该反映其职责或用途。</span></p></li></ul></li><li><p><strong><span>常量命名</span></strong><span>：</span></p><ul><li><p><span>通常使用全大写字母和下划线分隔（SNAKE_CASE）。</span></p></li><li><p><span>对于</span><code>const</code><span>变量，如果其命名足够清晰地表明其用途和值不会改变，也可以采用小驼峰命名法，但保持一致性很重要。</span></p></li></ul></li><li><p><strong><span>命名空间命名</span></strong><span>：</span></p><ul><li><p><span>命名空间使用大驼峰命名法（PascalCase），有助于避免命名冲突。</span></p></li></ul></li><li><p><strong><span>宏定义命名</span></strong><span>：</span></p><ul><li><p><span>通常也使用全大写字母和下划线分隔（SNAKE_CASE），以区分于其他类型的标识符。</span></p></li></ul></li></ul><h6 id='3-避免使用的命名'><span>3. 避免使用的命名</span></h6><ul><li><p><span>避免使用C++的保留关键字作为变量名、函数名等。</span></p></li><li><p><span>避免使用过于通用的名称，如</span><code>temp</code><span>, </span><code>data</code><span>等，除非在非常有限的局部作用域内。</span></p></li><li><p><span>避免使用数字或特殊字符作为标识符的开头（尽管C++允许这样做，但会降低可读性）。</span></p></li></ul><h6 id='4-团队和项目的命名规范'><span>4. 团队和项目的命名规范</span></h6><p><span>最重要的是，在项目或团队内部要保持命名规范的一致性。可以通过编写代码规范文档来明确命名规则，并在代码审查过程中强制执行这些规则。这有助于提高代码质量，促进团队成员之间的协作。</span></p><h4 id='142-编译和链接'><span>1.4.2 编译和链接</span></h4><h2 id='第二章-开始学习c++'><span>第二章 开始学习C++</span></h2><h3 id='21-进入c++'><span>2.1 进入C++</span></h3><h4 id='211-main函数'><span>2.1.1 main()函数</span></h4><h4 id='212-c++注释'><span>2.1.2 C++注释</span></h4><h4 id='213-c++预处理器和iostream文件'><span>2.1.3 C++预处理器和iostream文件</span></h4><h5 id='2131-预处理器'><span>2.1.3.1 预处理器</span></h5><blockquote><p><span>C/C++语言中的预处理指令是编译器在编译之前对源代码进行处理的指令。这些指令以</span><code>#</code><span>字符开头，告诉预处理器（preprocessor）对源代码进行特定的操作。预处理指令不包含在最终的编译结果中，但它们对编译过程有重要影响。下面是一些常见的C/C++预处理指令：</span></p></blockquote><h6 id='1-define'><span>1. </span><strong><span>#define</span></strong><span>：</span></h6><p><span>   </span><code>#define</code><span>指令用于定义宏。它可以定义无参数的宏（简单的文本替换）或带参数的宏（类似于函数调用的文本替换）。宏定义在预处理阶段被替换到源代码中，使得代码更加简洁或易于维护。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="c"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define PI 3.14159</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define MAX(a, b) ((a) &gt; (b) ? (a) : (b))</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 52px;"></div><div class="CodeMirror-gutters" style="display: none; height: 52px;"></div></div></div></pre><h6 id='2-include'><span>2. </span><strong><span>#include</span></strong><span>：</span></h6><p><span>   </span><code>#include</code><span>指令用于包含（或插入）另一个文件的内容到当前文件中。这通常用于包含标准库头文件或用户自定义的头文件，以便在多个源文件中共享声明、宏定义等。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="c"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt; </span><span class="cm-comment">// 包含标准输入输出库</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include "myheader.h" </span><span class="cm-comment">// 包含用户自定义的头文件</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 52px;"></div><div class="CodeMirror-gutters" style="display: none; height: 52px;"></div></div></div></pre><h6 id='3-ifdef-ifndef-endif-else-elif'><span>3. </span><strong><span>#ifdef, #ifndef, #endif, #else, #elif</span></strong><span>：</span></h6><p><span>   这些指令用于条件编译。它们允许根据是否定义了某个宏来决定是否包含某段代码。这在跨平台编程或根据不同的编译选项启用/禁用特定功能时非常有用。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="c"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#ifdef DEBUG</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">printf</span>(<span class="cm-string">"Debug mode is on.\n"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#endif</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#ifndef SOME_FEATURE</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define SOME_FEATURE 1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 实现一些功能</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#endif</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 208px;"></div><div class="CodeMirror-gutters" style="display: none; height: 208px;"></div></div></div></pre><h6 id='4-undef'><span>4. </span><strong><span>#undef</span></strong><span>：</span></h6><p><span>   </span><code>#undef</code><span>指令用于取消宏定义。一旦宏被</span><code>#undef</code><span>取消，预处理器将不再替换该宏名。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="c"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define MY_MACRO 1</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// ... 使用MY_MACRO ...</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#undef MY_MACRO</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 之后MY_MACRO将不再被替换</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 104px;"></div><div class="CodeMirror-gutters" style="display: none; height: 104px;"></div></div></div></pre><h6 id='5-line'><span>5. </span><strong><span>#line</span></strong><span>：</span></h6><p><span>   </span><code>#line</code><span>指令允许改变预处理器报告的当前行号和文件名。这通常用于生成的文件中，以便调试时能够更准确地指向原始源代码的位置。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="c"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#line 100 "newfile.c"</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 之后的错误和警告将报告为来自newfile.c的第100行</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 52px;"></div><div class="CodeMirror-gutters" style="display: none; height: 52px;"></div></div></div></pre><h6 id='6-pragma'><span>6. </span><strong><span>#pragma</span></strong><span>：</span></h6><p><span>   </span><code>#pragma</code><span>指令是编译器特定的预处理指令，用于提供编译器特定的指令。不同的编译器可能支持不同的</span><code>#pragma</code><span>指令，因此它的使用是高度依赖于编译器的。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="c"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#pragma once </span><span class="cm-comment">// 这是一个常见的非标准但广泛支持的指令，用于防止头文件被重复包含</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 52px;"></div><div class="CodeMirror-gutters" style="display: none; height: 52px;"></div></div></div></pre><h6 id='7-error-和-warning'><span>7. </span><strong><span>#error</span></strong><span> 和 </span><strong><span>#warning</span></strong><span>：</span></h6><p><span>   </span><code>#error</code><span>和</span><code>#warning</code><span>指令分别用于生成编译时错误和警告。这可以用于在编译时检查某些条件是否满足，如果不满足则生成错误或警告信息。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="c"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#ifndef SOME_REQUIRED_MACRO</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#error "SOME_REQUIRED_MACRO is not defined"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#endif</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 78px;"></div><div class="CodeMirror-gutters" style="display: none; height: 78px;"></div></div></div></pre><blockquote><p><span>这些预处理指令是C/C++语言灵活性和强大功能的一部分，它们允许程序员在编译之前对源代码进行复杂的操作，从而生成更加高效、可移植和易于维护的代码。</span></p></blockquote><p>&nbsp;</p><h4 id='214-头文件名'><span>2.1.4 头文件名</span></h4><h4 id='215-名称空间'><span>2.1.5 名称空间</span></h4><h4 id='216-使用cout进行c++输出'><span>2.1.6 使用cout进行C++输出</span></h4><h4 id='217-c++源代码的格式化'><span>2.1.7 C++源代码的格式化</span></h4><h3 id='22-c++语句'><span>2.2 C++语句</span></h3><h4 id='221-声明语句和变量'><span>2.2.1 声明语句和变量</span></h4><h4 id='222-赋值语句'><span>2.2.2 赋值语句</span></h4><h4 id='223-cout的新花样'><span>2.2.3 cout的新花样</span></h4><h3 id='23-其他c++语句'><span>2.3 其他C++语句</span></h3><h4 id='231-使用cin'><span>2.3.1 使用cin</span></h4><h4 id='232-使用cout进行拼接'><span>2.3.2 使用cout进行拼接</span></h4><h4 id='233-类简介'><span>2.3.3 类简介</span></h4><h3 id='24-函数'><span>2.4 函数</span></h3><h4 id='241-使用有返回值的函数'><span>2.4.1 使用有返回值的函数</span></h4><h4 id='242-函数变体'><span>2.4.2 函数变体</span></h4><h4 id='243-用户定义的函数'><span>2.4.3 用户定义的函数</span></h4><h4 id='244-用户定义的有返回值的函数'><span>2.4.4 用户定义的有返回值的函数</span></h4><h4 id='245-在多函数程序中使用using编译指令'><span>2.4.5 在多函数程序中使用using编译指令</span></h4><h2 id='第三章-处理数据'><span>第三章 处理数据</span></h2><h3 id='31-简单变量'><span>3.1 简单变量</span></h3><h3 id='32-const限定符'><span>3.2 const限定符</span></h3><h3 id='33-浮点数'><span>3.3 浮点数</span></h3><h3 id='34-c++算数运算符'><span>3.4 C++算数运算符</span></h3><h2 id='第四章-复合类型'><span>第四章 复合类型</span></h2><h3 id='41-数组'><span>4.1 数组</span></h3><h3 id='42-字符串'><span>4.2 字符串</span></h3><h3 id='43-string类简介'><span>4.3 string类简介</span></h3><h3 id='44-结构简介'><span>4.4 结构简介</span></h3><h3 id='45-共用体'><span>4.5 共用体</span></h3><h3 id='46-枚举'><span>4.6 枚举</span></h3><h3 id='47-指针和自由存储空间'><span>4.7 指针和自由存储空间</span></h3><h3 id='48-指针数组和指针算数'><span>4.8 指针、数组和指针算数</span></h3><h3 id='49-类型组合'><span>4.9 类型组合</span></h3><h3 id='410-数组的替代品'><span>4.10 数组的替代品</span></h3><h4 id='vector容器'><span>vector容器</span></h4><blockquote><p><code>vector</code><span> 是 C++ 标准模板库（STL）中的一个非常重要的序列容器，它提供了对一段连续存储空间的动态数组的功能。</span><code>vector</code><span> 能够存储任意类型的对象，包括自定义类型，并且能够自动管理存储空间的分配和释放。与数组相比，</span><code>vector</code><span> 的主要优势在于它能够根据需要动态地增长和缩小存储空间，从而提供了更大的灵活性。</span></p></blockquote><h5 id='基本特性'><span>基本特性</span></h5><ul><li><p><strong><span>动态数组</span></strong><span>：</span><code>vector</code><span> 内部实现通常是一个动态分配的数组，但对外提供了类似数组的操作接口，如使用下标访问元素。</span></p></li><li><p><strong><span>自动内存管理</span></strong><span>：当 </span><code>vector</code><span> 的大小增加时，如果需要更多空间来存储元素，它会自动重新分配一个更大的连续内存空间，并将现有元素复制到新的空间中。同样，当元素被删除且空间不再需要时，它也会释放多余的内存。</span></p></li><li><p><strong><span>随机访问</span></strong><span>：由于 </span><code>vector</code><span> 内部是连续存储的，因此支持通过下标进行快速的随机访问。</span></p></li><li><p><strong><span>迭代器</span></strong><span>：</span><code>vector</code><span> 提供了迭代器（iterator），允许使用范围基循环（如 </span><code>for</code><span> 循环）遍历容器中的元素。</span></p></li><li><p><strong><span>容量与大小</span></strong><span>：</span><code>vector</code><span> 有两个重要的属性——大小和容量。大小（</span><code>size()</code><span>）是容器中当前存储的元素数量，而容量（</span><code>capacity()</code><span>）是容器在不进行内存重新分配的情况下能够存储的元素的最大数量。</span></p></li></ul><h5 id='常用操作'><span>常用操作</span></h5><ul><li><p><strong><span>插入元素</span></strong><span>：可以使用 </span><code>push_back()</code><span> 在 </span><code>vector</code><span> 的末尾插入一个新元素，也可以使用 </span><code>insert()</code><span> 在指定位置插入一个或多个元素。</span></p></li><li><p><strong><span>删除元素</span></strong><span>：可以使用 </span><code>pop_back()</code><span> 删除 </span><code>vector</code><span> 的最后一个元素，或者使用 </span><code>erase()</code><span> 删除一个或多个元素。</span></p></li><li><p><strong><span>访问元素</span></strong><span>：可以通过下标操作符 </span><code>[]</code><span> 访问元素（不检查越界），或者使用 </span><code>at()</code><span> 成员函数（会检查越界并抛出异常）来访问元素。</span></p></li><li><p><strong><span>遍历元素</span></strong><span>：可以使用迭代器或者范围基循环（C++11及以后）遍历 </span><code>vector</code><span> 中的元素。</span></p></li><li><p><strong><span>大小和容量</span></strong><span>：使用 </span><code>size()</code><span> 获取 </span><code>vector</code><span> 的大小，使用 </span><code>capacity()</code><span> 获取其容量。如果需要，可以使用 </span><code>reserve()</code><span> 预留足够的空间以避免不必要的内存重新分配。</span></p></li><li><p><strong><span>清空</span></strong><span>：使用 </span><code>clear()</code><span> 移除 </span><code>vector</code><span> 中的所有元素，但保留内存空间。如果需要释放内存，可以接着使用 </span><code>shrink_to_fit()</code><span>（C++11及以后）尝试减少容量以匹配当前大小。</span></p></li></ul><h5 id='示例代码'><span>示例代码</span></h5><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;vector&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;</span> <span class="cm-variable">vec</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 向vector中添加元素</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">vec</span>.<span class="cm-variable">push_back</span>(<span class="cm-number">1</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">vec</span>.<span class="cm-variable">push_back</span>(<span class="cm-number">2</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">vec</span>.<span class="cm-variable">push_back</span>(<span class="cm-number">3</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 遍历vector</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">vec</span>.<span class="cm-variable">size</span>(); <span class="cm-operator">++</span><span class="cm-variable">i</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">vec</span>[<span class="cm-variable">i</span>] <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">" "</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 使用迭代器遍历</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable">std::vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">iterator</span> <span class="cm-variable">it</span> <span class="cm-operator">=</span> <span class="cm-variable">vec</span>.<span class="cm-variable">begin</span>(); <span class="cm-variable">it</span> <span class="cm-operator">!=</span> <span class="cm-variable">vec</span>.<span class="cm-variable">end</span>(); <span class="cm-operator">++</span><span class="cm-variable">it</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-operator">*</span><span class="cm-variable">it</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">" "</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 插入和删除元素</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">vec</span>.<span class="cm-variable">insert</span>(<span class="cm-variable">vec</span>.<span class="cm-variable">begin</span>(), <span class="cm-number">0</span>); <span class="cm-comment">// 在开头插入0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">vec</span>.<span class="cm-variable">erase</span>(<span class="cm-variable">vec</span>.<span class="cm-variable">begin</span>() <span class="cm-operator">+</span> <span class="cm-number">2</span>); <span class="cm-comment">// 删除第三个元素</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 访问元素</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"The second element is: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">vec</span>[<span class="cm-number">1</span>] <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 884px;"></div><div class="CodeMirror-gutters" style="display: none; height: 884px;"></div></div></div></pre><p><span>这个示例展示了 </span><code>vector</code><span> 的一些基本操作，包括添加元素、遍历元素、插入和删除元素以及访问元素。</span></p><h2 id='第五章-循环和关系表达式'><span>第五章 循环和关系表达式</span></h2><h3 id='51-for循环'><span>5.1 for循环</span></h3><h3 id='52-while循环'><span>5.2 while循环</span></h3><h3 id='53-do-while-循环'><span>5.3 do while 循环</span></h3><h3 id='54-基于范围的for循环c++11'><span>5.4 基于范围的for循环（C++11）</span></h3><h3 id='55-循环和文本输入'><span>5.5 循环和文本输入</span></h3><h3 id='56-嵌套循环和二维数组'><span>5.6 嵌套循环和二维数组</span></h3><h2 id='第六章-分支语句和逻辑运算符'><span>第六章 分支语句和逻辑运算符</span></h2><h3 id='61-if语句'><span>6.1 if语句</span></h3><h3 id='62-逻辑表达式'><span>6.2 逻辑表达式</span></h3><h3 id='63-字符函数库cctype'><span>6.3 字符函数库cctype</span></h3><h3 id='64-运算符'><span>6.4 ?:运算符</span></h3><h3 id='65-switch语句'><span>6.5 switch语句</span></h3><h3 id='66-break和continue语句'><span>6.6 break和continue语句</span></h3><h3 id='67-读取数字的循环'><span>6.7 读取数字的循环</span></h3><h3 id='68-简单文件输入输出'><span>6.8 简单文件输入/输出</span></h3><h2 id='第七章-函数------c++的编程模块'><span>第七章 函数——C++的编程模块</span></h2><h3 id='71-复习函数的基本知识'><span>7.1 复习函数的基本知识</span></h3><h3 id='72-函数参数和按值传递'><span>7.2 函数参数和按值传递</span></h3><h3 id='73-函数和数组'><span>7.3 函数和数组</span></h3><h3 id='74-函数和二维数组'><span>7.4 函数和二维数组</span></h3><h3 id='75-函数和c-风格字符串'><span>7.5 函数和C-风格字符串</span></h3><h3 id='76-函数和结构'><span>7.6 函数和结构</span></h3><h3 id='77-函数和string对象'><span>7.7 函数和string对象</span></h3><h3 id='78-函数与array对象'><span>7.8 函数与array对象</span></h3><h3 id='79-递归'><span>7.9 递归</span></h3><h3 id='710-函数指针'><span>7.10 函数指针</span></h3><h2 id='第八章-函数探幽'><span>第八章 函数探幽</span></h2><h3 id='81-c++内联函数'><span>8.1 C++内联函数</span></h3><h3 id='82-引用变量'><span>8.2 引用变量</span></h3><h3 id='83-默认参数'><span>8.3 默认参数</span></h3><p><span>&lt;返回值类型&gt;&lt;函数名&gt;(&lt;参数列表&gt;)const；</span></p><p><span>const表明此函数不会修改对象状态,这是一个好习惯，特别是在设计类的接口时。</span></p><h3 id='84-函数重载'><span>8.4 函数重载</span></h3><p><span>函数重载不能根据返回值类型进行重载</span></p><h3 id='85-函数模板'><span>8.5 函数模板</span></h3><h2 id='第九章-内存模型和名称空间'><span>第九章 内存模型和名称空间</span></h2><h3 id='91-单独编译'><span>9.1 单独编译</span></h3><h3 id='92-存储持续性作用域和链接性'><span>9.2 存储持续性、作用域和链接性</span></h3><h3 id='93-名称空间'><span>9.3 名称空间</span></h3><p><span>避免在头文件中使用</span><code>using namespace std;</code><span>：虽然在这个简单的示例中为了简化而使用了它，但在实际项目中，最好避免在头文件中使用</span><code>using namespace std;</code><span>，因为它可能会导致命名冲突。相反，你应该在需要的地方显式地使用</span><code>std::</code><span>前缀。</span></p><h2 id='第十章-对象和类'><span>第十章 对象和类</span></h2><h3 id='101-过程性编程和面向对象编程'><span>10.1 过程性编程和面向对象编程</span></h3><h3 id='102-抽象和类'><span>10.2 抽象和类</span></h3><h3 id='103-类的构造函数和析构函数'><span>10.3 类的构造函数和析构函数</span></h3><h4 id='-构造函数格式'><span>* </span><strong><span>构造函数格式</span></strong><span>：</span></h4><blockquote><p><span>&lt;类名&gt;(参数列表):类成员(函数参数),类成员(函数参数){}</span></p><p><span>当声明与实现分开时，在函数定义中不需要指定与声明中相同的默认参数。</span></p></blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="c++"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//用参数列表中传入的参数对类成员进行初始化</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//当使用无参的构造函数时，可以用值初始化类成员</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//默认构造函数：无参的构造函数</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 78px;"></div><div class="CodeMirror-gutters" style="display: none; height: 78px;"></div></div></div></pre><ul><li><p><span>类成员函数名不能与类成员变量名冲突</span></p></li></ul><ol start='' ><li><p><strong><span>数组大小作为非类型模板参数</span></strong><span>：在C++中，你不能直接在类定义中使用外部定义的</span><code>const int</code><span>作为数组的大小，除非它是编译时常量表达式（比如</span><code>constexpr</code><span>或者枚举值）。但是，对于普通的</span><code>const int</code><span>，这通常不是编译时常量表达式。因此，你不能这样做。你可以改用</span><code>constexpr</code><span>，但更常见的做法是使用</span><code>std::array</code><span>或</span><code>std::string</code><span>。</span></p></li><li><p><strong><span>构造函数中的数组初始化</span></strong><span>：在C++中，你不能在构造函数初始化列表中直接初始化数组（包括字符数组）。数组需要在构造函数体内通过循环或其他方式逐个元素地设置。但是，如果你使用</span><code>std::array</code><span>或</span><code>std::string</code><span>，你可以在初始化列表中直接初始化它们。</span></p></li></ol><h3 id='104-this指针'><span>10.4 this指针</span></h3><h3 id='105-对象数组'><span>10.5 对象数组</span></h3><h3 id='106-类作用域'><span>10.6 类作用域</span></h3><h3 id='107-抽象数据类型'><span>10.7 抽象数据类型</span></h3><h2 id='第十一章-使用类'><span>第十一章 使用类</span></h2><h3 id='111-运算符重载'><span>11.1 运算符重载</span></h3><h3 id='112-计算时间一个运算符重载示例'><span>11.2 计算时间：一个运算符重载示例</span></h3><h3 id='113-友元'><span>11.3 友元</span></h3><h3 id='114-重载运算符作为成员函数还是非成员函数'><span>11.4 重载运算符：作为成员函数还是非成员函数</span></h3><h3 id='115-再谈重载一个矢量类'><span>11.5 再谈重载：一个矢量类</span></h3><h3 id='116-类的自动转换和强制类型转换'><span>11.6 类的自动转换和强制类型转换</span></h3><h2 id='第十二章-类和动态内存分配'><span>第十二章 类和动态内存分配</span></h2><h3 id='121-动态内存和类'><span>12.1 动态内存和类</span></h3><h3 id='122-改进后的新string类'><span>12.2 改进后的新String类</span></h3><h3 id='123-在构造函数中使用new时应注意的事项'><span>12.3 在构造函数中使用new时应注意的事项</span></h3><h3 id='124-有关返回对象的说明'><span>12.4 有关返回对象的说明</span></h3><h3 id='125-使用指向对象的指针'><span>12.5 使用指向对象的指针</span></h3><h3 id='126-复习各种技术'><span>12.6 复习各种技术</span></h3><h3 id='127-队列模拟'><span>12.7 队列模拟</span></h3><h2 id='第十三章-类继承'><span>第十三章 类继承</span></h2><h3 id='131-一个简单的基类'><span>13.1 一个简单的基类</span></h3><h3 id='132-继承is-a关系'><span>13.2 继承：is-a关系</span></h3><h3 id='133-多态公有继承'><span>13.3 多态公有继承</span></h3><h3 id='134-静态联编和动态联编'><span>13.4 静态联编和动态联编</span></h3><h3 id='135-访问控制protected'><span>13.5 访问控制：protected</span></h3><h3 id='136-抽象基类'><span>13.6 抽象基类</span></h3><h3 id='137-继承和动态内存分配'><span>13.7 继承和动态内存分配</span></h3><h3 id='138-类设计回顾'><span>13.8 类设计回顾</span></h3><h2 id='第十四章-c++中的代码重用'><span>第十四章 C++中的代码重用</span></h2><h3 id='141-包含对象成员的类'><span>14.1 包含对象成员的类</span></h3><h3 id='142-私有继承'><span>14.2 私有继承</span></h3><h3 id='143-多重继承'><span>14.3 多重继承</span></h3><h3 id='144-类模板'><span>14.4 类模板</span></h3><h2 id='第十五章-友元异常和其他'><span>第十五章 友元、异常和其他</span></h2><h3 id='151-友元'><span>15.1 友元</span></h3><h3 id='152-嵌套类'><span>15.2 嵌套类</span></h3><h3 id='153-异常'><span>15.3 异常</span></h3><h3 id='154-rtti'><span>15.4 RTTI</span></h3><h3 id='155-类型转换运算符'><span>15.5 类型转换运算符</span></h3><h2 id='第十六章-string类和标准模板库'><span>第十六章 string类和标准模板库</span></h2><h3 id='161-string类'><span>16.1 string类</span></h3><h3 id='162-智能指针模板类'><span>16.2 智能指针模板类</span></h3><h3 id='163-标准模板库'><span>16.3 标准模板库</span></h3><h4 id='<vector>容器'><code>&lt;vector&gt;</code><span>容器</span></h4><blockquote><p><code>&lt;vector&gt;</code><span> 是 C++ 标准模板库（STL）中的一个非常重要和常用的容器，它提供了动态数组的功能。</span><code>&lt;vector&gt;</code><span> 容器可以存储一系列的元素，这些元素在内存中连续存储，并且可以动态地增长或缩小。以下是一些 </span><code>&lt;vector&gt;</code><span> 的常用方法：</span></p></blockquote><h4 id='<stack>栈'><code>&lt;stack&gt;</code><span>栈</span></h4><blockquote><p><code>&lt;stack&gt;</code><span> 容器适配器在 C++ 标准模板库（STL）中提供了对栈（后进先出，LIFO）数据结构的支持。虽然 </span><code>&lt;stack&gt;</code><span> 的操作相对简单，但它提供了几个基本且常用的操作，以满足栈的基本功能需求。以下是 </span><code>&lt;stack&gt;</code><span> 的常用操作：</span></p></blockquote><h5 id='1-构造函数'><span>1. 构造函数</span></h5><ul><li><p><code>stack()</code><span>: 创建一个空的栈。</span></p></li><li><p><code>stack(const stack&amp; other)</code><span>: 创建一个栈的副本，复制 </span><code>other</code><span> 栈中的所有元素。</span></p></li></ul><h5 id='2-元素插入'><span>2. 元素插入</span></h5><ul><li><p><code>void push(const T&amp; value)</code><span>: 在栈顶插入一个新元素 </span><code>value</code><span>。这是向栈中添加元素的唯一方式。</span></p></li></ul><h5 id='3-元素删除'><span>3. 元素删除</span></h5><ul><li><p><code>void pop()</code><span>: 删除栈顶的元素，但不返回该元素的值。这是从栈中移除元素的唯一方式。</span></p></li></ul><h5 id='4-访问栈顶元素'><span>4. 访问栈顶元素</span></h5><ul><li><p><code>T&amp; top()</code><span>: 返回栈顶元素的引用。注意，这不会从栈中移除元素，只是提供了访问它的方式。</span></p></li><li><p><code>const T&amp; top() const</code><span>: 这是 </span><code>top()</code><span> 函数的常量版本，用于在栈是常量时访问栈顶元素。</span></p></li></ul><h5 id='5-栈的状态检查'><span>5. 栈的状态检查</span></h5><ul><li><p><code>bool empty() const</code><span>: 检查栈是否为空。如果栈为空，则返回 </span><code>true</code><span>；否则返回 </span><code>false</code><span>。</span></p></li><li><p><code>size_t size() const</code><span>: 返回栈中元素的数量。注意，</span><code>size()</code><span> 返回的类型通常是 </span><code>size_t</code><span>，这是一个无符号整数类型，用于表示大小。</span></p></li></ul><h5 id='示例代码-2'><span>示例代码</span></h5><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stack&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::stack</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;</span> <span class="cm-variable">myStack</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 检查栈是否为空</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">myStack</span>.<span class="cm-variable">empty</span>()) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"Stack is empty."</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 向栈中添加元素</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">myStack</span>.<span class="cm-variable">push</span>(<span class="cm-number">10</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">myStack</span>.<span class="cm-variable">push</span>(<span class="cm-number">20</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 访问栈顶元素</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"Top element is: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">myStack</span>.<span class="cm-variable">top</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 删除栈顶元素</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">myStack</span>.<span class="cm-variable">pop</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 再次访问栈顶元素</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"New top element is: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">myStack</span>.<span class="cm-variable">top</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 获取栈的大小</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"Stack size: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">myStack</span>.<span class="cm-variable">size</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 832px;"></div><div class="CodeMirror-gutters" style="display: none; height: 832px;"></div></div></div></pre><blockquote><p><span>在这个示例中，我们首先创建了一个空的 </span><code>std::stack&lt;int&gt;</code><span> 对象 </span><code>myStack</code><span>。然后，我们向栈中添加了两个整数元素（10 和 20）。接着，我们访问并输出了栈顶元素（20），然后删除了它。之后，我们再次访问并输出了新的栈顶元素（10），并获取了栈的大小（1）。</span></p></blockquote><blockquote><p><span>注意，</span><code>&lt;stack&gt;</code><span> 容器适配器不提供直接访问栈中除栈顶之外元素的方法，也不支持在栈的任意位置插入或删除元素。这些限制是栈数据结构本身的特性所决定的。</span></p></blockquote><h5 id='1-构造函数-2'><span>1. 构造函数</span></h5><ul><li><p><code>vector&lt;T&gt; v;</code><span>：创建一个空的 </span><code>vector</code><span>。</span></p></li><li><p><code>vector&lt;T&gt; v(n);</code><span>：创建一个有 </span><code>n</code><span> 个元素的 </span><code>vector</code><span>，所有元素都被初始化为 </span><code>T()</code><span>（即默认构造函数）。</span></p></li><li><p><code>vector&lt;T&gt; v(n, val);</code><span>：创建一个有 </span><code>n</code><span> 个元素的 </span><code>vector</code><span>，所有元素都被初始化为 </span><code>val</code><span>。</span></p></li><li><p><code>vector&lt;T&gt; v(beg, end);</code><span>：创建一个 </span><code>vector</code><span>，其内容是 </span><code>[beg, end)</code><span> 范围内的元素的一个副本，其中 </span><code>beg</code><span> 和 </span><code>end</code><span> 是迭代器。</span></p></li><li><p><code>vector&lt;T&gt; v(const vector&lt;T&gt;&amp; other);</code><span>：复制构造函数，创建一个与 </span><code>other</code><span> 相同内容的 </span><code>vector</code><span>。</span></p></li></ul><h5 id='2-赋值'><span>2. 赋值</span></h5><ul><li><p><code>v = other;</code><span>：将 </span><code>v</code><span> 的内容替换为 </span><code>other</code><span> 的内容。</span></p></li></ul><h5 id='3-大小操作'><span>3. 大小操作</span></h5><ul><li><p><code>v.size()</code><span>：返回 </span><code>v</code><span> 中元素的数量。</span></p></li><li><p><code>v.empty()</code><span>：如果 </span><code>v</code><span> 为空，则返回 </span><code>true</code><span>。</span></p></li><li><p><code>v.resize(n);</code><span>：将 </span><code>v</code><span> 的大小改为 </span><code>n</code><span>，如果 </span><code>n</code><span> 大于当前大小，则新元素被初始化为 </span><code>T()</code><span>。</span></p></li><li><p><code>v.resize(n, val);</code><span>：将 </span><code>v</code><span> 的大小改为 </span><code>n</code><span>，如果 </span><code>n</code><span> 大于当前大小，则新元素被初始化为 </span><code>val</code><span>。</span></p></li></ul><h5 id='4-元素访问'><span>4. 元素访问</span></h5><ul><li><p><code>v[n]</code><span>：返回 </span><code>v</code><span> 中位置为 </span><code>n</code><span> 的元素的引用（注意：不检查索引是否越界）。</span></p></li><li><p><code>v.at(n)</code><span>：返回 </span><code>v</code><span> 中位置为 </span><code>n</code><span> 的元素的引用，如果 </span><code>n</code><span> 越界，则抛出 </span><code>std::out_of_range</code><span> 异常。</span></p></li><li><p><code>v.front()</code><span>：返回 </span><code>v</code><span> 中第一个元素的引用。</span></p></li><li><p><code>v.back()</code><span>：返回 </span><code>v</code><span> 中最后一个元素的引用。</span></p></li></ul><h5 id='5-修改操作'><span>5. 修改操作</span></h5><ul><li><p><code>v.push_back(val)</code><span>：在 </span><code>v</code><span> 的末尾添加一个元素 </span><code>val</code><span>。</span></p></li><li><p><code>v.pop_back()</code><span>：移除 </span><code>v</code><span> 的最后一个元素。</span></p></li><li><p><code>v.insert(pos, val)</code><span>：在 </span><code>v</code><span> 中迭代器 </span><code>pos</code><span> 指向的位置之前插入一个新元素 </span><code>val</code><span>，并返回指向新元素的迭代器。</span></p></li><li><p><code>v.insert(pos, n, val)</code><span>：在 </span><code>v</code><span> 中迭代器 </span><code>pos</code><span> 指向的位置之前插入 </span><code>n</code><span> 个值为 </span><code>val</code><span> 的新元素。</span></p></li><li><p><code>v.insert(pos, beg, end)</code><span>：在 </span><code>v</code><span> 中迭代器 </span><code>pos</code><span> 指向的位置之前插入一个范围 </span><code>[beg, end)</code><span> 内的元素副本。</span></p></li><li><p><code>v.erase(pos)</code><span>：移除 </span><code>v</code><span> 中迭代器 </span><code>pos</code><span> 指向的元素，并返回指向下一个元素的迭代器。</span></p></li><li><p><code>v.erase(beg, end)</code><span>：移除 </span><code>v</code><span> 中范围 </span><code>[beg, end)</code><span> 内的元素。</span></p></li></ul><h5 id='6-迭代器'><span>6. 迭代器</span></h5><ul><li><p><code>v.begin()</code><span>：返回指向 </span><code>v</code><span> 中第一个元素的迭代器。</span></p></li><li><p><code>v.end()</code><span>：返回指向 </span><code>v</code><span> 中最后一个元素之后位置的迭代器（这是一个“尾后迭代器”，不指向任何元素）。</span></p></li><li><p><code>v.rbegin()</code><span> 和 </span><code>v.rend()</code><span>：分别返回指向 </span><code>v</code><span> 中最后一个元素和第一个元素之前位置的反向迭代器。</span></p></li></ul><h5 id='7-容量'><span>7. 容量</span></h5><ul><li><p><code>v.capacity()</code><span>：返回 </span><code>v</code><span> 在不重新分配内存的情况下能够存储的元素数量。</span></p></li><li><p><code>v.shrink_to_fit()</code><span>（C++11及以后）：请求移除未使用的容量（即减小 </span><code>v</code><span> 的容量以匹配其大小）。注意，这是一个非强制性请求，实现可能忽略它。</span></p></li></ul><blockquote><p><span>这些是 </span><code>&lt;vector&gt;</code><span> 的一些基本和常用的方法。</span><code>&lt;vector&gt;</code><span> 因其灵活性和易用性而非常受欢迎，是 C++ 中最常用的容器之一。</span></p></blockquote><h3 id='164-泛型编程'><span>16.4 泛型编程</span></h3><h3 id='165-函数对象'><span>16.5 函数对象</span></h3><h3 id='166-算法'><span>16.6 算法</span></h3><h3 id='167-其他库'><span>16.7 其他库</span></h3><h4 id='<array>-头文件'><code>&lt;array&gt;</code><span>头文件</span></h4><blockquote><p><code>std::array</code><span> 是 C++11 引入的一个固定大小的数组容器，它提供了比原生数组更多的功能和安全性，同时保持了与原生数组类似的性能。</span><code>std::array</code><span> 是模板类，定义在头文件 </span><code>&lt;array&gt;</code><span> 中。</span></p></blockquote><h5 id='主要特点'><span>主要特点</span></h5><ol start='' ><li><p><strong><span>固定大小</span></strong><span>：与原生数组一样，</span><code>std::array</code><span> 的大小在编译时就已确定，不能动态改变。</span></p></li><li><p><strong><span>容器接口</span></strong><span>：</span><code>std::array</code><span> 提供了标准库容器的接口，比如 </span><code>begin()</code><span>, </span><code>end()</code><span>, </span><code>size()</code><span>, </span><code>empty()</code><span> 等成员函数，这使得它在使用上更加灵活和方便。</span></p></li><li><p><strong><span>随机访问</span></strong><span>：由于 </span><code>std::array</code><span> 的大小是固定的，并且存储在连续的内存中，因此它支持随机访问，即可以在常数时间内访问任意元素。</span></p></li><li><p><strong><span>类型安全</span></strong><span>：使用 </span><code>std::array</code><span> 可以避免一些原生数组常见的类型错误，比如数组越界等。</span></p></li><li><p><strong><span>初始化列表</span></strong><span>：</span><code>std::array</code><span> 支持使用初始化列表进行初始化，这使得代码更加简洁。</span></p></li></ol><h5 id='示例'><span>示例</span></h5><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt; &nbsp;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;array&gt; &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() { &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 声明并初始化一个 std::array &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span>, <span class="cm-number">5</span><span class="cm-operator">&gt;</span> <span class="cm-variable">arr</span> <span class="cm-operator">=</span> {<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>, <span class="cm-number">4</span>, <span class="cm-number">5</span>}; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 使用范围for遍历 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">elem</span> : <span class="cm-variable">arr</span>) { &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">elem</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">' '</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">'\n'</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 使用迭代器遍历 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable">std::array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span>, <span class="cm-number">5</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">iterator</span> <span class="cm-variable">it</span> <span class="cm-operator">=</span> <span class="cm-variable">arr</span>.<span class="cm-variable">begin</span>(); <span class="cm-variable">it</span> <span class="cm-operator">!=</span> <span class="cm-variable">arr</span>.<span class="cm-variable">end</span>(); <span class="cm-operator">++</span><span class="cm-variable">it</span>) { &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-operator">*</span><span class="cm-variable">it</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">' '</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">'\n'</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 访问特定元素 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"The first element is: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">arr</span>[<span class="cm-number">0</span>] <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">'\n'</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 获取数组大小 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"The size of the array is: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">arr</span>.<span class="cm-variable">size</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">'\n'</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 624px;"></div><div class="CodeMirror-gutters" style="display: none; height: 624px;"></div></div></div></pre><h5 id='注意事项'><span>注意事项</span></h5><ul><li><p><span>尽管 </span><code>std::array</code><span> 提供了许多便利，但由于其大小固定，因此在需要动态数组大小的情况下，应该使用 </span><code>std::vector</code><span>。</span></p></li><li><p><code>std::array</code><span> 的大小是模板参数，因此它必须是编译时常量。</span></p></li><li><p><code>std::array</code><span> 支持几乎所有的标准容器操作，但由于其大小固定，一些操作（如 </span><code>push_back()</code><span>）自然是不支持的。</span></p></li><li><p><code>std::array</code><span> 的性能与原生数组非常接近，因为它们在内部都是以连续内存的形式存储元素。然而，由于 </span><code>std::array</code><span> 提供了更多的功能和安全性，因此在许多情况下它是更好的选择。</span></p></li></ul><h4 id='<cstdlib>-头文件'><code>&lt;cstdlib&gt;</code><span> 头文件</span></h4><h5 id='abs函数'><span>abs()函数</span></h5><blockquote><p><span>在C++中，</span><code>abs()</code><span> 函数是一个用于计算整数绝对值的函数。然而，需要注意的是，</span><code>abs()</code><span> 函数实际上并不直接定义在C++标准库中，而是定义在C标准库 </span><code>&lt;cstdlib&gt;</code><span>（或C++中的 </span><code>&lt;stdlib.h&gt;</code><span>，尽管推荐使用C++风格的头文件）中。C++标准库为了与C标准库兼容，也包含了这些函数。</span></p><p><code>abs()</code><span> 函数只能用于整数类型（如 </span><code>int</code><span>），并返回其参数的绝对值。如果你需要计算浮点数（如 </span><code>float</code><span> 或 </span><code>double</code><span>）的绝对值，你应该使用 </span><code>&lt;cmath&gt;</code><span>（或C++中的 </span><code>&lt;math.h&gt;</code><span>，但同样推荐使用C++风格的头文件）库中的 </span><code>fabs()</code><span>, </span><code>fabsf()</code><span>, 或 </span><code>fabsl()</code><span> 函数，分别对应 </span><code>double</code><span>、</span><code>float</code><span> 和 </span><code>long double</code><span> 类型。</span></p></blockquote><h6 id='使用-abs-函数'><span>使用 </span><code>abs()</code><span> 函数</span></h6><p><span>下面是一个使用 </span><code>abs()</code><span> 函数的简单示例：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt; &nbsp;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;cstdlib&gt; </span><span class="cm-comment">// 包含 abs() 函数 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() { &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">number</span> <span class="cm-operator">=</span> <span class="cm-operator">-</span><span class="cm-number">5</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">absoluteValue</span> <span class="cm-operator">=</span> <span class="cm-variable">abs</span>(<span class="cm-variable">number</span>); &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"The absolute value of "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">number</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">" is "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">absoluteValue</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 312px;"></div><div class="CodeMirror-gutters" style="display: none; height: 312px;"></div></div></div></pre><p><span>在这个例子中，</span><code>abs()</code><span> 函数被用来计算整数 </span><code>-5</code><span> 的绝对值，并打印结果。</span></p><h6 id='注意'><span>注意</span></h6><ul><li><p><span>如果你正在处理浮点数，请使用 </span><code>&lt;cmath&gt;</code><span> 中的 </span><code>fabs()</code><span>, </span><code>fabsf()</code><span>, 或 </span><code>fabsl()</code><span> 函数。</span></p></li><li><p><span>对于更复杂的数值类型（如复数），C++标准库提供了 </span><code>&lt;complex&gt;</code><span> 头文件，其中包含了计算复数绝对值的函数。</span></p></li><li><p><span>考虑到跨平台兼容性，当你处理不同大小的整数时（如 </span><code>long</code><span>、</span><code>long long</code><span>），C++标准库并没有直接提供这些类型的 </span><code>abs()</code><span> 版本。不过，C++17 引入了 </span><code>&lt;cmath&gt;</code><span> 中的 </span><code>std::abs</code><span> 模板函数，它可以用于任何数值类型，包括整数和浮点数。对于整数类型，这个模板函数的行为与 </span><code>&lt;cstdlib&gt;</code><span> 中的 </span><code>abs()</code><span> 函数类似，但提供了更好的类型支持和灵活性。</span></p></li></ul><h6 id='c++17-示例'><span>C++17 示例</span></h6><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt; &nbsp;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;cmath&gt; </span><span class="cm-comment">// 包含 std::abs 模板函数 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() { &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">number</span> <span class="cm-operator">=</span> <span class="cm-operator">-</span><span class="cm-number">5</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">double</span> <span class="cm-variable">floatingNumber</span> <span class="cm-operator">=</span> <span class="cm-operator">-</span><span class="cm-number">3.14</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"The absolute value of "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">number</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">" is "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::abs</span>(<span class="cm-variable">number</span>) <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"The absolute value of "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">floatingNumber</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">" is "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::abs</span>(<span class="cm-variable">floatingNumber</span>) <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 364px;"></div><div class="CodeMirror-gutters" style="display: none; height: 364px;"></div></div></div></pre><p><span>在这个C++17示例中，</span><code>std::abs</code><span> 被用于计算整数和浮点数的绝对值。</span></p><h4 id='<limits>头文件'><code>&lt;limits&gt;</code><span>头文件</span></h4><blockquote><p><span>在C++中，</span><code>&lt;limits&gt;</code><span>头文件提供了对基本数据类型（如整数、浮点数等）的属性和限制的访问，包括它们能表示的最大值、最小值、精度等。以下是一些常用的方法来获取这些最值：</span></p></blockquote><h5 id='1-获取整数类型的最大值和最小值'><span>1. 获取整数类型的最大值和最小值</span></h5><blockquote><p><span>对于整数类型（如</span><code>int</code><span>、</span><code>long</code><span>、</span><code>short</code><span>、</span><code>unsigned int</code><span>等），你可以使用</span><code>std::numeric_limits</code><span>模板类来获取它们的最大值和最小值。</span></p></blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-meta">#include &lt;iostream&gt; &nbsp;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-meta">#include &lt;limits&gt; &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-def">main</span>() { &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 获取int的最大值和最小值 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"int的最大值: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::numeric_limits</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">max</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"int的最小值: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::numeric_limits</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">min</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 对于无符号类型，最小值总是0 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"unsigned int的最大值: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::numeric_limits</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">max</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"unsigned int的最小值: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::numeric_limits</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">min</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; <span class="cm-comment">// 总是0 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 494px;"></div><div class="CodeMirror-gutters" style="display: none; height: 494px;"></div></div></div></pre><h5 id='2-获取浮点类型的最大值最小值和精度'><span>2. 获取浮点类型的最大值、最小值和精度</span></h5><blockquote><p><span>对于浮点类型（如</span><code>float</code><span>、</span><code>double</code><span>），</span><code>std::numeric_limits</code><span>同样适用，并且你还可以获取到它们的精度（epsilon，即两个可表示值之间的最小差异）等信息。</span></p></blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-meta">#include &lt;iostream&gt; &nbsp;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-meta">#include &lt;limits&gt; &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-def">main</span>() { &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 获取double的最大值和最小值 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"double的最大值: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::numeric_limits</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">double</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">max</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"double的最小值: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::numeric_limits</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">double</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">min</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; <span class="cm-comment">// 注意：这是最小的正数 &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 获取double的最小绝对值（即负数的最小值） &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"double的最小绝对值: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-operator">-</span><span class="cm-variable">std::numeric_limits</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">double</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">lowest</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 获取double的精度（epsilon） &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"double的精度(epsilon): "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::numeric_limits</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">double</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">epsilon</span>() <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 546px;"></div><div class="CodeMirror-gutters" style="display: none; height: 546px;"></div></div></div></pre><h5 id='注意事项-2'><span>注意事项</span></h5><blockquote><ul><li><p><span>对于无符号整数类型，</span><code>std::numeric_limits&lt;T&gt;::min()</code><span>总是返回0，因为无符号整数没有负数。</span></p></li></ul></blockquote><ul><li><p><span>浮点数的</span><code>std::numeric_limits&lt;T&gt;::min()</code><span>返回的是该类型能表示的最小</span><strong><span>正</span></strong><span>值，而</span><code>std::numeric_limits&lt;T&gt;::lowest()</code><span>返回的是该类型能表示的最小值（对于浮点数来说，这通常是负的）。</span></p></li><li><p><span>浮点数的</span><code>epsilon</code><span>表示的是1与大于1的最小浮点数之间的差，是浮点数精度的一个度量。</span></p></li></ul><blockquote><p><span>通过</span><code>&lt;limits&gt;</code><span>头文件和</span><code>std::numeric_limits</code><span>模板类，你可以很方便地获取C++中基本数据类型的各种属性和限制。</span></p></blockquote><h4 id='<cctype>头文件'><code>&lt;cctype&gt;</code><span>头文件</span></h4><blockquote><p><code>&lt;cctype&gt;</code><span> 是C++标准库中的一个头文件，它继承自C语言中的 </span><code>&lt;ctype.h&gt;</code><span>，提供了一系列用于字符分类和转换的函数。这些函数在处理字符串、验证输入等方面非常有用。以下是 </span><code>&lt;cctype&gt;</code><span> 中一些常用的函数及其功能介绍：</span></p></blockquote><h5 id='字符测试函数'><span>字符测试函数</span></h5><ol start='' ><li><p><strong><span>isalnum(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是字母或数字（即字母A-Z、a-z或数字0-9），则返回非零值（真）。</span></p></li><li><p><strong><span>isalpha(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是字母（A-Z、a-z），则返回非零值（真）。</span></p></li><li><p><strong><span>iscntrl(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是控制字符（ASCII码中0到31以及127的字符，通常不可见），则返回非零值（真）。</span></p></li><li><p><strong><span>isdigit(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是数字（0-9），则返回非零值（真）。</span></p></li><li><p><strong><span>isgraph(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是除空格之外的打印字符（即可以打印的字符，但不是空格），则返回非零值（真）。</span></p></li><li><p><strong><span>islower(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是小写字母（a-z），则返回非零值（真）。</span></p></li><li><p><strong><span>isprint(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是打印字符（包括空格），则返回非零值（真）。</span></p></li><li><p><strong><span>ispunct(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是标点符号，则返回非零值（真）。</span></p></li><li><p><strong><span>isspace(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是标准空白字符（如空格、换行符、制表符等），则返回非零值（真）。</span></p></li><li><p><strong><span>isupper(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是大写字母（A-Z），则返回非零值（真）。</span></p></li><li><p><strong><span>isxdigit(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是十六进制数字（0-9、a-f、A-F），则返回非零值（真）。</span></p></li></ol><h5 id='字符转换函数'><span>字符转换函数</span></h5><ol start='' ><li><p><strong><span>tolower(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是大写字母，则返回其小写形式；否则，返回该参数不变。</span></p></li><li><p><strong><span>toupper(int c)</span></strong><span>: 如果参数 </span><code>c</code><span> 是小写字母，则返回其大写形式；否则，返回该参数不变。</span></p></li></ol><h5 id='注意事项-3'><span>注意事项</span></h5><ul><li><p><span>这些函数都接受一个 </span><code>int</code><span> 类型的参数，但实际上它们只处理该参数的低8位（即ASCII值或Unicode字符的某个表示）。</span></p></li><li><p><span>返回值通常为非零值（表示真）或零值（表示假）。在C++中，这些返回值可以直接用于布尔表达式。</span></p></li><li><p><span>尽管这些函数通常用于处理 </span><code>char</code><span> 类型的字符，但它们也可以处理更宽的字符类型（如 </span><code>wchar_t</code><span>），但需要使用相应的宽字符版本函数（定义在 </span><code>&lt;cwctype&gt;</code><span> 中）。</span></p></li></ul><h5 id='示例代码-3'><span>示例代码</span></h5><blockquote><p><span>以下是一个简单的示例，展示了如何使用 </span><code>&lt;cctype&gt;</code><span> 中的一些函数：</span></p></blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;cctype&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">char</span> <span class="cm-variable">ch</span> <span class="cm-operator">=</span> <span class="cm-string">'A'</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isalpha</span>(<span class="cm-variable">ch</span>)) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"'"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">ch</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"' 是字母。"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isupper</span>(<span class="cm-variable">ch</span>)) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"'"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">ch</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"' 是大写字母。"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">char</span> <span class="cm-variable">lower_ch</span> <span class="cm-operator">=</span> <span class="cm-variable">tolower</span>(<span class="cm-variable">ch</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"'"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">ch</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"' 的小写形式是 '"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">lower_ch</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"'。"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isdigit</span>(<span class="cm-variable">ch</span> <span class="cm-operator">+</span> <span class="cm-string">'0'</span>)) { <span class="cm-comment">// 将 'A' 转换为 '10'（这里仅为示例，实际上 'A' + '0' 并不等于 '10'）</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"'"</span> <span class="cm-operator">&lt;&lt;</span> (<span class="cm-variable-3">char</span>)(<span class="cm-variable">ch</span> <span class="cm-operator">+</span> <span class="cm-string">'0'</span>) <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"' 是数字（但请注意，这里的转换仅为示例）。"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 注意：上面的转换只是为了演示如何修改字符并检查，实际上并不合理</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 728px;"></div><div class="CodeMirror-gutters" style="display: none; height: 728px;"></div></div></div></pre><blockquote><p><span>请注意，示例中的 </span><code>ch + &#39;0&#39;</code><span> 转换仅为演示目的，实际上它并不会将 </span><code>&#39;A&#39;</code><span> 转换为数字字符。正确的数字字符检查应该直接使用 </span><code>isdigit</code><span> 函数对数字字符（如 </span><code>&#39;0&#39;</code><span> 到 </span><code>&#39;9&#39;</code><span>）进行操作。</span></p></blockquote><h4 id='<fstream>头文件'><code>&lt;fstream&gt;</code><span>头文件</span></h4><blockquote><p><code>fstream</code><span> 是 C++ 标准库中的一个头文件，它定义了用于文件输入/输出（I/O）的类。这个头文件结合了 </span><code>iostream</code><span> 和 </span><code>fstreambase</code><span> 的功能，允许程序以面向对象的方式进行文件的读写操作。</span><code>fstream</code><span> 提供的类能够处理顺序文件（即文件中的数据按照写入顺序被读取或写入），并且支持二进制模式和文本模式。</span></p></blockquote><h5 id='主要类'><span>主要类</span></h5><ul><li><p><code>ifstream</code><span>（input file stream）：用于从文件读取数据。它继承自 </span><code>istream</code><span> 类。</span></p></li><li><p><code>ofstream</code><span>（output file stream）：用于向文件写入数据。它继承自 </span><code>ostream</code><span> 类。</span></p></li><li><p><code>fstream</code><span>：同时支持读写操作。它继承自 </span><code>iostream</code><span> 类，结合了 </span><code>ifstream</code><span> 和 </span><code>ofstream</code><span> 的功能。</span></p></li></ul><h5 id='使用方法'><span>使用方法</span></h5><blockquote><p><span>要使用 </span><code>fstream</code><span> 头文件中的类，首先需要包含这个头文件：</span></p></blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;fstream&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 26px;"></div><div class="CodeMirror-gutters" style="display: none; height: 26px;"></div></div></div></pre><blockquote><p><span>然后，可以创建 </span><code>ifstream</code><span>、</span><code>ofstream</code><span> 或 </span><code>fstream</code><span> 的对象，并使用它们来打开文件、读写数据以及关闭文件。</span></p></blockquote><h6 id='打开文件'><span>打开文件</span></h6><blockquote><p><span>所有这三个类都提供了 </span><code>open</code><span> 成员函数来打开文件。这个函数接受一个字符串参数（文件名），以及一个可选的模式参数（如 </span><code>ios::in</code><span>、</span><code>ios::out</code><span>、</span><code>ios::app</code><span>、</span><code>ios::binary</code><span> 等）来指定文件的打开方式。</span></p></blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">ifstream</span> <span class="cm-variable">fileIn</span>;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fileIn</span>.<span class="cm-variable">open</span>(<span class="cm-string">"example.txt"</span>, <span class="cm-variable">ios::in</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">ofstream</span> <span class="cm-variable">fileOut</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fileOut</span>.<span class="cm-variable">open</span>(<span class="cm-string">"output.txt"</span>, <span class="cm-variable">ios::out</span> <span class="cm-operator">|</span> <span class="cm-variable">ios::trunc</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fstream</span> <span class="cm-variable">fileIO</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fileIO</span>.<span class="cm-variable">open</span>(<span class="cm-string">"io.txt"</span>, <span class="cm-variable">ios::in</span> <span class="cm-operator">|</span> <span class="cm-variable">ios::out</span> <span class="cm-operator">|</span> <span class="cm-variable">ios::app</span>);</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 208px;"></div><div class="CodeMirror-gutters" style="display: none; height: 208px;"></div></div></div></pre><h6 id='读写文件'><span>读写文件</span></h6><blockquote><p><span>一旦文件被成功打开，就可以使用 </span><code>&gt;&gt;</code><span>（从文件读取）和 </span><code>&lt;&lt;</code><span>（向文件写入）操作符，或者成员函数如 </span><code>read</code><span>、</span><code>write</code><span>、</span><code>getline</code><span> 等来进行数据的读写操作。</span></p></blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 使用 ifstream 读取</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">string</span> <span class="cm-variable">line</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">while</span> (<span class="cm-variable">getline</span>(<span class="cm-variable">fileIn</span>, <span class="cm-variable">line</span>)) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">line</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 使用 ofstream 写入</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fileOut</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"Hello, World!"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 使用 fstream 读写</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fileIO</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"Appending text."</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">endl</span>;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 286px;"></div><div class="CodeMirror-gutters" style="display: none; height: 286px;"></div></div></div></pre><h6 id='关闭文件'><span>关闭文件</span></h6><blockquote><p><span>完成文件操作后，应该使用 </span><code>close</code><span> 成员函数来关闭文件。虽然析构函数也会自动关闭文件，但显式关闭文件是一个好习惯，特别是在进行大量文件操作时。</span></p></blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fileIn</span>.<span class="cm-variable">close</span>();</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fileOut</span>.<span class="cm-variable">close</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fileIO</span>.<span class="cm-variable">close</span>();</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 78px;"></div><div class="CodeMirror-gutters" style="display: none; height: 78px;"></div></div></div></pre><h5 id='注意事项-4'><span>注意事项</span></h5><ul><li><p><span>在打开文件时，如果文件不存在且使用了 </span><code>ios::in</code><span> 模式，则 </span><code>open</code><span> 函数会失败。如果文件不存在且使用了 </span><code>ios::out</code><span> 或 </span><code>ios::out | ios::trunc</code><span> 模式，则会创建新文件。</span></p></li><li><p><span>使用 </span><code>ios::app</code><span> 模式时，写入操作会将数据追加到文件末尾，而不是覆盖原有内容。</span></p></li><li><p><code>fstream</code><span> 允许在打开文件时同时指定 </span><code>ios::in</code><span> 和 </span><code>ios::out</code><span> 模式，但这样做时，需要小心处理文件的位置指针，以免在读写操作中产生意外的结果。</span></p></li></ul><p><code>fstream</code><span> 提供了灵活且强大的文件操作能力，是 C++ 程序中处理文件不可或缺的一部分。</span></p><h2 id='第十七章-输入输出和文件'><span>第十七章 输入、输出和文件</span></h2><h3 id='171-c++输入和输出概述'><span>17.1 C++输入和输出概述</span></h3><h3 id='172-使用cout进行输出'><span>17.2 使用cout进行输出</span></h3><h3 id='173-使用cin进入输入'><span>17.3 使用cin进入输入</span></h3><ol start='' ><li><p><strong><span>基本读取操作</span></strong></p><ul><li><p><code>operator&gt;&gt;</code><span>：重载的提取运算符，用于读取数据并自动跳过空白字符（如空格、制表符、换行符）。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-variable">age</span>;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">string</span> <span class="cm-variable">name</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">cin</span> <span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">age</span> <span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">name</span>; <span class="cm-comment">// 依次读取整数和字符串</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 78px;"></div><div class="CodeMirror-gutters" style="display: none; height: 78px;"></div></div></div></pre></li></ul></li><li><p><strong><span>getline()</span></strong></p><ul><li><p><code>getline</code><span> 是 C++ 中用于读取字符串的一个非常实用的函数，它可以从输入流中读取一行文本直到遇到指定的分隔符，默认的分隔符是换行符（&#39;\n&#39;）。</span><code>getline</code><span> 有两个重载版本，分别位于 </span><code>&lt;string&gt;</code><span> 和 </span><code>&lt;iostream&gt;</code><span> 头文件中，分别用于处理 </span><code>std::string</code><span> 和字符数组。</span></p></li><li><p><span>处理字符串的函数原型</span></p></li></ul><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">std::getline</span>(<span class="cm-variable">std::istream</span><span class="cm-operator">&amp;</span> <span class="cm-variable">is</span>, <span class="cm-variable">std::string</span><span class="cm-operator">&amp;</span> <span class="cm-variable">str</span>, <span class="cm-variable-3">char</span> <span class="cm-variable">delim</span> <span class="cm-operator">=</span> <span class="cm-string">'\n'</span>);</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//is：输入流对象，如 `std::cin`。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//str：存储读取到的字符串的变量。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//delim：可选参数，指定的分隔符，默认为换行符`\n`。当遇到这个字符时停止读取。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//getline(cin, stringVar);：从 `cin` 读取一行到字符串 `stringVar` 中。</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 208px;"></div><div class="CodeMirror-gutters" style="display: none; height: 208px;"></div></div></div></pre><ul><li><p><span>字符串示例：</span></p></li></ul><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;string&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-variable">std::string</span> <span class="cm-variable">line</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"请输入一行文本："</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-variable">std::getline</span>(<span class="cm-variable">std::cin</span>, <span class="cm-variable">line</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"你输入的是："</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">line</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> }</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 237px;"></div><div class="CodeMirror-gutters" style="display: none; height: 237px;"></div></div></div></pre><ul><li><p><span>处理字符数组的函数原型</span></p></li></ul><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">std::istream</span><span class="cm-operator">&amp;</span> <span class="cm-variable">getline</span>(<span class="cm-variable-3">char*</span> <span class="cm-variable">s</span>, <span class="cm-variable">std::streamsize</span> <span class="cm-variable">n</span>, <span class="cm-variable-3">char</span> <span class="cm-variable">delim</span>);</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//s：指向字符数组的指针，用来存储读取到的字符串。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//n：字符数组的大小，确保不会发生缓冲区溢出。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//delim：同上，指定的分隔符。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//cin.getline(charArray, size);</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//从 `cin` 读取最多 `size-1` 个字符到字符数组 `charArray` 中，保留最后一个位置给结束符 `\0`。</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 208px;"></div><div class="CodeMirror-gutters" style="display: none; height: 208px;"></div></div></div></pre><ul><li><p><span>字符数组示例：</span></p></li></ul><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-variable-3">int</span> <span class="cm-variable">SIZE</span> <span class="cm-operator">=</span> <span class="cm-number">100</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">char</span> <span class="cm-variable">str</span>[<span class="cm-variable">SIZE</span>];</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"请输入一行文本："</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cin</span>.<span class="cm-variable">getline</span>(<span class="cm-variable">str</span>, <span class="cm-variable">SIZE</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"你输入的是："</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">str</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 234px;"></div><div class="CodeMirror-gutters" style="display: none; height: 234px;"></div></div></div></pre><ul><li><p><span>注意事项：</span></p></li></ul><blockquote><p><span>当使用 </span><code>getline</code><span> 读取 </span><code>std::cin</code><span> 时，如果之前有使用 </span><code>&gt;&gt;</code><span> 操作符读取数据，且用户输入了额外的空格或换行符，这些额外的字符会被留在缓冲区中，可能会影响后续的 </span><code>getline</code><span> 调用。在这种情况下，可以先调用 </span><code>cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), &#39;\n&#39;);</code><span> 来清除缓冲区。</span></p></blockquote><blockquote><p><code>getline</code><span> 会读取分隔符之前的所有字符，但不包括分隔符本身。如果分隔符是最后一个读入的字符，它会被留在输入流中。</span></p></blockquote><blockquote><p><span>使用字符数组时，确保数组足够大，以避免溢出。使用 </span><code>std::string</code><span> 更安全，因为它会自动管理内存。</span></p></blockquote><blockquote><p><code>getline</code><span>与</span><code>std::cin</code><span>一起使用时，是用于读取</span><code>std::string</code><span>类型的，而不是读取字符数组的。</span></p></blockquote></li></ol><ol start='3' ><li><p><strong><span>ignore()</span></strong></p><ul><li><p><span>忽略输入流中的指定数量字符或直到遇到特定字符为止。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10.9995px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">cin</span>.<span class="cm-variable">ignore</span>(<span class="cm-variable">numeric_limits</span><span class="cm-operator">&lt;</span><span class="cm-variable">streamsize</span><span class="cm-operator">&gt;</span>::<span class="cm-variable">max</span>(), <span class="cm-string">'\n'</span>); <span class="cm-comment">// 忽略当前行剩下的所有字符</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//也能清除`cin`中的换行符，这可以防止在连续调用`cin &gt;&gt;`时出现问题，避免对后续输入产生影响</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">//使用 `cin` 时，记得处理可能出现的错误情况，如无效输入，以确保程序的健壮性。</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 156px;"></div><div class="CodeMirror-gutters" style="display: none; height: 156px;"></div></div></div></pre></li></ul></li><li><p><strong><span>peek()</span></strong></p><ul><li><p><span>查看输入流中的下一个字符但不提取它。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">if</span> (<span class="cm-variable">cin</span>.<span class="cm-variable">peek</span>() <span class="cm-operator">==</span> <span class="cm-string">'\n'</span>) { <span class="cm-comment">/* 下一个字符是换行 */</span> }</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 26px;"></div><div class="CodeMirror-gutters" style="display: none; height: 26px;"></div></div></div></pre></li></ul></li><li><p><strong><span>eof()</span></strong></p><ul><li><p><span>检查是否到达输入流的结束。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">if</span> (<span class="cm-variable">cin</span>.<span class="cm-variable">eof</span>()) { <span class="cm-comment">/* 已经到达文件尾 */</span> }</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 26px;"></div><div class="CodeMirror-gutters" style="display: none; height: 26px;"></div></div></div></pre></li></ul></li><li><p><strong><span>good(), bad(), fail(), eof()</span></strong></p><ul><li><p><span>这些函数用于检查 </span><code>cin</code><span> 的状态，判断是否发生了错误或是否到达文件尾。</span></p><ul><li><p><code>good()</code><span>：如果流没有错误，返回 true。</span></p></li><li><p><code>bad()</code><span>：如果发生不可恢复的错误，返回 true。</span></p></li><li><p><code>fail()</code><span>：如果发生读取或格式错误，返回 true。</span></p></li><li><p><code>eof()</code><span>：如果上次读取操作到达文件尾，返回 true。</span></p></li></ul></li></ul></li><li><p><strong><span>ws()</span></strong></p><ul><li><p><span>用于跳过输入流中的空白字符，直到遇到非空白字符。通常用于 </span><code>&gt;&gt;</code><span> 操作之前，以忽略不需要的空白。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="cpp"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">cin</span> <span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">ws</span>; <span class="cm-comment">// 跳过空白字符</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 26px;"></div><div class="CodeMirror-gutters" style="display: none; height: 26px;"></div></div></div></pre></li></ul></li><li><p><strong><span>width() 和 precision()</span></strong></p><ul><li><p><span>控制读取或输出的宽度和精度，主要用于格式化输出，但也可影响输入时的行为。</span></p></li></ul></li><li><p><strong><span>tie() 和 untie()</span></strong></p><ul><li><p><span>控制与关联的输出流（通常是 </span><code>cout</code><span>）的同步。</span><code>untie()</code><span> 可以取消同步，但通常不推荐用于 </span><code>cin</code><span>。</span></p></li></ul></li></ol><h3 id='174-文件输入和输出'><span>17.4 文件输入和输出</span></h3><h3 id='175-内核格式化'><span>17.5 内核格式化</span></h3><h2 id='第十八章-探讨c++新标准'><span>第十八章 探讨C++新标准</span></h2><h3 id='181-复习前面介绍过的c++11功能'><span>18.1 复习前面介绍过的C++11功能</span></h3><h3 id='182-移动语义和右值引用'><span>18.2 移动语义和右值引用</span></h3><h3 id='183-新的类功能'><span>18.3 新的类功能</span></h3><h3 id='184-lambda函数'><span>18.4 Lambda函数</span></h3><h3 id='185-包装器'><span>18.5 包装器</span></h3><h3 id='186-可变参数模板'><span>18.6 可变参数模板</span></h3><h3 id='187-c++11新增的其他功能'><span>18.7 C++11新增的其他功能</span></h3><h3 id='188-语言变化'><span>18.8 语言变化</span></h3><h3 id='189-接下了的任务'><span>18.9 接下了的任务</span></h3><h2 id='附录a-计数系统'><span>附录A 计数系统</span></h2><h3 id='a1-十进制数'><span>A.1 十进制数</span></h3><h3 id='a2-八进制数'><span>A.2 八进制数</span></h3><h3 id='a3-十六进制数'><span>A.3 十六进制数</span></h3><h3 id='a4-二进制数'><span>A.4 二进制数</span></h3><h3 id='a5-二进制和十六进制'><span>A.5 二进制和十六进制</span></h3><h2 id='附录b-c++保留字'><span>附录B C++保留字</span></h2><h3 id='b1-c++关键字'><span>B.1 C++关键字</span></h3><h3 id='b2-替代标记'><span>B.2 替代标记</span></h3><h3 id='b3-c++库保留名称'><span>B.3 C++库保留名称</span></h3><h3 id='b4-有特殊含义的标识符'><span>B.4 有特殊含义的标识符</span></h3><h2 id='附录c-ascii字符集'><span>附录C ASCII字符集</span></h2><h2 id='附录d-运算符优先级'><span>附录D 运算符优先级</span></h2><h2 id='附录e-其他运算符'><span>附录E 其他运算符</span></h2><h3 id='e1-按位运算符'><span>E.1 按位运算符</span></h3><h3 id='e2-成员解除引用运算符'><span>E.2 成员解除引用运算符</span></h3><h3 id='e3-alignofc++11'><span>E.3 alignof（C++11）</span></h3><h3 id='e3-noexceptc++11'><span>E.3 noexcept（C++11）</span></h3><h2 id='附录f-模板类string'><span>附录F 模板类string</span></h2><h3 id='f1-13种类型和一个常量'><span>F.1 13种类型和一个常量</span></h3><h3 id='f2-数据信息构造函数及其他'><span>F.2 数据信息、构造函数及其他</span></h3><h3 id='f3-字符串存取'><span>F.3 字符串存取</span></h3><h3 id='f4-基本赋值'><span>F.4 基本赋值</span></h3><h3 id='f5-字符串搜索'><span>F.5 字符串搜索</span></h3><h3 id='f6-比较方法和函数'><span>F.6 比较方法和函数</span></h3><h3 id='f7-字符串修改方法'><span>F.7 字符串修改方法</span></h3><h3 id='f8-输出和输入'><span>F.8 输出和输入</span></h3><h2 id='附录g-标准模板库方法和函数'><span>附录G 标准模板库方法和函数</span></h2><h3 id='g1-stl和c++11'><span>G.1 STL和C++11</span></h3><h3 id='g2-大部分容器都有的成员'><span>G.2 大部分容器都有的成员</span></h3><h3 id='g3-序列容器的其他成员'><span>G.3 序列容器的其他成员</span></h3><h3 id='g4-set和map的其他操作'><span>G.4 set和map的其他操作</span></h3><h3 id='g5-无序关联容器c++11'><span>G.5 无序关联容器（C++11）</span></h3><h3 id='g6-stl函数'><span>G.6 STL函数</span></h3><h2 id='附录h-精选读物和网上资源'><span>附录H 精选读物和网上资源</span></h2><h3 id='h1-精选读物'><span>H.1 精选读物</span></h3><h3 id='h2-网上资源'><span>H.2 网上资源</span></h3><h2 id='附录i-转换为iso标准c++'><span>附录I 转换为ISO标准C++</span></h2><h3 id='i1-使用一些预处理器编译指令的替代品'><span>I.1 使用一些预处理器编译指令的替代品</span></h3><h3 id='i2-使用函数原型'><span>I.2 使用函数原型</span></h3><h3 id='i3-使用类型转换'><span>I.3 使用类型转换</span></h3><h3 id='i4-熟悉c++特性'><span>I.4 熟悉C++特性</span></h3><h3 id='i5-使用新的头文件'><span>I.5 使用新的头文件</span></h3><h3 id='i6-使用名称空间'><span>I.6 使用名称空间</span></h3><h3 id='i7-使用智能指针'><span>I.7 使用智能指针</span></h3><h3 id='i8-使用string类'><span>I.8 使用string类</span></h3><h3 id='i9-使用stl'><span>I.9 使用STL</span></h3></div></div>
+</body>
+</html>
