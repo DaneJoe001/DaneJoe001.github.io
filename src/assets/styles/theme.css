@@ -1,0 +1,174 @@
+/* 通用样式和变量定义 */
+
+/* 设置全局字体和基本样式 */
+:root {
+  --font-family: 'Roboto', 'Open Sans', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  --font-size-base: 14px;
+  --line-height-base: 1.5;
+
+  /* 亮色模式变量 */
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #f5f5f5;
+  --light-text-primary: #333333;
+  --light-text-secondary: #666666;
+  --light-accent-green: #4caf50;
+  --light-accent-blue: #2196f3;
+  --light-accent-purple: #9c27b0;
+  --light-border: #e0e0e0;
+  --light-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+  /* 暗色模式变量 */
+  --dark-bg-primary: #121212;
+  --dark-bg-secondary: #1e1e1e;
+  --dark-text-primary: #e0e0e0;
+  --dark-text-secondary: #a0a0a0;
+  --dark-accent-green: #81c784;
+  --dark-accent-blue: #64b5f6;
+  --dark-accent-purple: #ba68c8;
+  --dark-border: #333333;
+  --dark-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 设置不同设备的字体大小 */
+@media screen and (max-width: 1200px) {
+  :root {
+    --font-size-base: 13.5px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  :root {
+    --font-size-base: 13px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-base: 12.5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --font-size-base: 12px;
+  }
+}
+
+/* 亮色主题 */
+.light-theme {
+  /* 背景颜色 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f0f2f5;
+
+  /* 文本颜色 */
+  --text-primary: #333333;
+  --text-secondary: #5a6169;
+  --text-muted: #868e96;
+
+  /* 边框和阴影 */
+  --border: #e6e8eb;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  /* 强调色 */
+  --accent-blue: #2196f3;
+  --accent-green: #4caf50;
+  --accent-red: #f44336;
+
+  /* 链接颜色 */
+  --link: #1976d2;
+  --link-hover: #0d47a1;
+
+  /* 代码块背景 */
+  --code-bg: #f5f7f9;
+  --code-color: #24292e;
+}
+
+/* 深色主题 */
+.dark-theme {
+  /* 背景颜色 */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #252525;
+  --bg-tertiary: #303030;
+
+  /* 文本颜色 */
+  --text-primary: #e0e0e0;
+  --text-secondary: #aaaaaa;
+  --text-muted: #777777;
+
+  /* 边框和阴影 */
+  --border: #404040;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  /* 强调色 */
+  --accent-blue: #42a5f5;
+  --accent-green: #66bb6a;
+  --accent-red: #ef5350;
+
+  /* 链接颜色 */
+  --link: #64b5f6;
+  --link-hover: #90caf9;
+
+  /* 代码块背景 */
+  --code-bg: #252525;
+  --code-color: #e0e0e0;
+}
+
+/* 全局样式 */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 移动端视图优化 */
+@media screen and (max-width: 768px) {
+  body {
+    -webkit-tap-highlight-color: transparent; /* 去除移动端点击高亮 */
+  }
+  
+  input, select, textarea, button {
+    font-size: 16px !important; /* 防止iOS设备自动放大输入控件 */
+  }
+}
+
+/* 响应式图片 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-muted);
+}
+
+/* 代码字体 */
+code, pre {
+  font-family: 'Fira Code', 'Source Code Pro', 'Consolas', monospace;
+}
+
+/* 过渡效果 */
+.theme-transition {
+  transition: all 0.3s ease;
+} 

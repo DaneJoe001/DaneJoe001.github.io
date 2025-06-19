@@ -1,0 +1,258 @@
+/* 布局样式 */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden; /* 防止水平滚动 */
+  background-color: var(--bg-primary);
+}
+
+/* 侧边栏样式 */
+.sidebar {
+  width: 240px; /* 减小侧边栏宽度 */
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  z-index: 100;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.sidebar.collapsed {
+  width: 60px; /* 减小折叠时的宽度 */
+}
+
+.sidebar-header {
+  padding: 20px 15px; /* 减小内边距 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 1.2rem; /* 减小字体大小 */
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 1.1rem; /* 减小图标大小 */
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.sidebar-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.menu-item {
+  padding: 12px 15px; /* 减小内边距 */
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.95rem; /* 减小字体大小 */
+}
+
+.menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--accent-blue);
+}
+
+.menu-item.active {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--accent-blue);
+  border-left: 3px solid var(--accent-blue);
+  font-weight: 500;
+}
+
+.menu-item i {
+  margin-right: 10px; /* 减小右边距 */
+  width: 18px; /* 减小图标宽度 */
+  text-align: center;
+  font-size: 1rem; /* 减小图标大小 */
+}
+
+.submenu {
+  margin-left: 20px; /* 减小左边距 */
+  display: none;
+}
+
+.submenu.open {
+  display: block;
+}
+
+/* 内容区域基本样式 - 其他样式已移至Content.vue组件 */
+.content {
+  flex: 1;
+  padding: 0; /* 移除内边距，由Content.vue控制 */
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+  margin-left: 240px; /* 左侧边距与侧边栏宽度一致 */
+  margin-right: 0; /* 右侧边距由Content.vue控制 */
+  transition: margin-left 0.3s; /* 添加过渡效果 */
+  max-width: calc(100% - 240px); /* 最大宽度考虑左侧导航 */
+  box-sizing: border-box;
+}
+
+.content.sidebar-collapsed {
+  margin-left: 60px;
+  max-width: calc(100% - 60px);
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 1.1rem; /* 减小图标大小 */
+  padding: 6px;
+  margin-left: auto;
+  border-radius: 4px;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 1200px) {
+  .sidebar {
+    width: 220px; /* 减小宽度 */
+  }
+  
+  .sidebar.collapsed {
+    width: 55px; /* 减小折叠时的宽度 */
+  }
+  
+  .content {
+    margin-left: 220px;
+    max-width: calc(100% - 220px);
+  }
+  
+  .content.sidebar-collapsed {
+    margin-left: 55px;
+    max-width: calc(100% - 55px);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .sidebar {
+    width: 200px; /* 减小宽度 */
+  }
+  
+  .sidebar.collapsed {
+    width: 50px; /* 减小折叠时的宽度 */
+  }
+  
+  .content {
+    margin-left: 200px;
+    max-width: calc(100% - 200px);
+  }
+  
+  .content.sidebar-collapsed {
+    margin-left: 50px;
+    max-width: calc(100% - 50px);
+  }
+  
+  .sidebar-title {
+    font-size: 1.1rem;
+  }
+  
+  .menu-item {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 220px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar.collapsed {
+    width: 220px;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .content.sidebar-collapsed {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  
+  /* 添加移动端菜单按钮 */
+  .mobile-menu-button {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 101;
+    background: var(--bg-secondary);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 1rem;
+    transition: all 0.3s;
+  }
+  
+  .mobile-menu-button:hover {
+    background-color: var(--accent-blue);
+    color: white;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 10px 12px;
+  }
+  
+  .sidebar {
+    width: 200px;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .sidebar {
+    display: none;
+  }
+  
+  .content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  
+  .toc-container {
+    display: none;
+  }
+} 

@@ -1,0 +1,305 @@
+/* Markdown 内容样式 */
+.markdown-content {
+  font-size: 0.95rem; /* 减小默认字体大小 */
+  line-height: 1.6; /* 减小行高 */
+  color: var(--text-primary);
+  width: 100%;
+  text-align: justify; /* 文本两端对齐，提高可读性 */
+  max-width: 100%; /* 允许内容填充容器 */
+  margin: 0; /* 保持左对齐 */
+  overflow-wrap: break-word; /* 确保长文本会换行 */
+  word-wrap: break-word; /* 兼容性支持 */
+  overflow-x: hidden; /* 防止水平溢出 */
+}
+
+/* 标题高亮效果 */
+@keyframes highlight-pulse {
+  0% { background-color: rgba(33, 150, 243, 0.1); }
+  50% { background-color: rgba(33, 150, 243, 0.2); }
+  100% { background-color: rgba(33, 150, 243, 0.1); }
+}
+
+.highlight-heading {
+  animation: highlight-pulse 1s ease-in-out;
+  border-left: 3px solid var(--accent-blue);
+  padding-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 1.2em; /* 减小顶部边距 */
+  margin-bottom: 0.6em; /* 减小底部边距 */
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+  scroll-margin-top: 15px; /* 减少滚动边距 */
+  text-align: left; /* 标题左对齐 */
+  max-width: 100%; /* 确保标题不会溢出 */
+  overflow-wrap: break-word;
+}
+
+.markdown-content h1 {
+  font-size: 1.7em; /* 减小字体大小 */
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2em;
+}
+
+.markdown-content h2 {
+  font-size: 1.5em; /* 减小字体大小 */
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2em;
+}
+
+.markdown-content h3 {
+  font-size: 1.3em; /* 减小字体大小 */
+}
+
+.markdown-content h4 {
+  font-size: 1.1em; /* 减小字体大小 */
+}
+
+.markdown-content h5 {
+  font-size: 1em; /* 减小字体大小 */
+}
+
+.markdown-content h6 {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+}
+
+.markdown-content p {
+  margin-top: 0;
+  margin-bottom: 1em; /* 减小段落间距 */
+  line-height: 1.6; /* 减小行高 */
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.markdown-content a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+  word-break: break-all; /* 允许链接在任何位置换行 */
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  padding-left: 1.8em; /* 减小左边距 */
+  margin-top: 0;
+  margin-bottom: 1.2em;
+  max-width: 100%;
+}
+
+.markdown-content li {
+  margin-bottom: 0.5em; /* 减小间距 */
+  line-height: 1.5; /* 减小行高 */
+}
+
+.markdown-content blockquote {
+  padding: 0.6em 1em;
+  color: var(--text-secondary);
+  border-left: 0.3em solid var(--border);
+  margin: 0 0 1em 0;
+  background-color: var(--bg-secondary);
+  border-radius: 0 4px 4px 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.markdown-content pre {
+  background-color: var(--bg-secondary);
+  border-radius: 4px;
+  padding: 1em;
+  overflow-x: auto; /* 允许代码块水平滚动 */
+  margin-bottom: 1em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 特殊处理嵌套的Markdown代码块 */
+.markdown-block {
+  background-color: var(--bg-primary);
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  max-width: 100%;
+}
+
+.markdown-content code {
+  background-color: var(--bg-secondary);
+  border-radius: 3px;
+  padding: 0.15em 0.3em;
+  font-family: 'Fira Code', 'Source Code Pro', 'Consolas', monospace;
+  font-size: 0.85em;
+  word-break: break-all; /* 允许代码在任何位置换行 */
+  white-space: pre-wrap; /* 保留空格但允许换行 */
+}
+
+.markdown-content pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 0.85em;
+  line-height: 1.5;
+  white-space: pre; /* 保留代码格式 */
+  word-break: normal; /* 不在任意位置断行 */
+}
+
+/* 表格样式增强 */
+.table-responsive {
+  overflow-x: auto;
+  margin-bottom: 1.2em;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 100%;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block; /* 使表格可滚动 */
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.markdown-content table th,
+.markdown-content table td {
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--border);
+  min-width: 80px; /* 设置最小宽度防止内容过于压缩 */
+}
+
+.markdown-content table th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.markdown-content table tr {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border);
+}
+
+.markdown-content table tr:nth-child(2n) {
+  background-color: var(--bg-secondary);
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto; /* 保持图片比例 */
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 0.8em 0;
+  display: block; /* 块级显示以避免行内问题 */
+}
+
+.markdown-content hr {
+  height: 0.2em;
+  padding: 0;
+  margin: 1.5em 0;
+  background-color: var(--border);
+  border: 0;
+  border-radius: 2px;
+}
+
+/* 特殊样式类 */
+.code-block {
+  margin-bottom: 1.2em;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.markdown-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.8em auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.image-error {
+  background-color: var(--bg-secondary);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+  .markdown-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .markdown-content h1 {
+    font-size: 1.6em;
+  }
+  
+  .markdown-content h2 {
+    font-size: 1.4em;
+  }
+  
+  .markdown-content h3 {
+    font-size: 1.3em;
+  }
+  
+  .markdown-content h4 {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .markdown-content {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .markdown-content pre {
+    padding: 0.8em;
+  }
+  
+  .markdown-content blockquote {
+    padding: 0.5em 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .markdown-content {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .markdown-content h1 {
+    font-size: 1.5em;
+  }
+  
+  .markdown-content h2 {
+    font-size: 1.3em;
+  }
+  
+  .markdown-content h3 {
+    font-size: 1.1em;
+  }
+  
+  .markdown-content ul,
+  .markdown-content ol {
+    padding-left: 1.2em;
+  }
+} 
