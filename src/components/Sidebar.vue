@@ -44,17 +44,25 @@
       </div>
       
       <div class="submenu" :class="{ open: openSubmenus.includes('projects') && !isCollapsed }">
-        <div class="menu-item" @click="selectContent('projects', 'wordbox')" :class="{ active: activeContent === 'wordbox' }">
-          <i class="fa fa-language"></i>
-          <span v-if="!isCollapsed">单词魔盒项目</span>
+        <div class="menu-item" @click="selectContent('projects', 'multimedia_player')" :class="{ active: activeContent === 'multimedia_player' }">
+          <i class="fa fa-play-circle"></i>
+          <span v-if="!isCollapsed">多媒体播放器</span>
         </div>
-        <div class="menu-item" @click="selectContent('projects', 'doctools')" :class="{ active: activeContent === 'doctools' }">
-          <i class="fa fa-file-text"></i>
-          <span v-if="!isCollapsed">文档工具项目</span>
+        <div class="menu-item" @click="selectContent('projects', 'network_framework')" :class="{ active: activeContent === 'network_framework' }">
+          <i class="fa fa-exchange"></i>
+          <span v-if="!isCollapsed">网络传输框架</span>
         </div>
-        <div class="menu-item" @click="selectContent('projects', 'serialtool')" :class="{ active: activeContent === 'serialtool' }">
-          <i class="fa fa-terminal"></i>
-          <span v-if="!isCollapsed">串口调试工具</span>
+        <div class="menu-item" @click="selectContent('projects', 'concurrent_library')" :class="{ active: activeContent === 'concurrent_library' }">
+          <i class="fa fa-tasks"></i>
+          <span v-if="!isCollapsed">并发容器库</span>
+        </div>
+        <div class="menu-item" @click="selectContent('projects', 'logger_library')" :class="{ active: activeContent === 'logger_library' }">
+          <i class="fa fa-file-text-o"></i>
+          <span v-if="!isCollapsed">异步日志库</span>
+        </div>
+        <div class="menu-item" @click="selectContent('projects', 'stringify_library')" :class="{ active: activeContent === 'stringify_library' }">
+          <i class="fa fa-font"></i>
+          <span v-if="!isCollapsed">字符串化库</span>
         </div>
       </div>
       

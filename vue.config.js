@@ -3,7 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   // 添加publicPath配置，适配GitHub Pages部署环境
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/vue_blog_demo02/' // 仓库名称，部署到GitHub Pages时需要
+    ? '/' // 个人站点仓库(username.github.io)使用根路径
     : '/',
   chainWebpack: config => {
     config.module
