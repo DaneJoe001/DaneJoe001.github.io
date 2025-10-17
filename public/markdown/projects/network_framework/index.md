@@ -164,7 +164,6 @@ private:
 DaneJoeSerializer serializer;
 
 // 序列化
-std::unordered_map<std::string, int> data{{"age", 30}, {"score", 95}};
 std::vector<uint8_t> bytes = serializer.serialize("user_info", data);
 
 // 反序列化
