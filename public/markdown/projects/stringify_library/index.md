@@ -34,7 +34,6 @@ DaneJoe::to_string(std::string("world"));  // "world"
 std::vector<int> v{1, 2, 3};
 DaneJoe::to_string(v);               // "[1, 2, 3]"
 
-std::unordered_map<int, std::string> m{{1, "one"}, {2, "two"}};
 DaneJoe::to_string(m);               // "[{1:one}, {2:two}]"
 
 // Pair
@@ -105,13 +104,6 @@ DaneJoe::to_string(vec);  // "[1, 2, 3, 4, 5]"
 std::set<std::string> set{"apple", "banana", "cherry"};
 DaneJoe::to_string(set);  // "[apple, banana, cherry]"
 
-// 嵌套容器
-std::vector<std::vector<int>> matrix{{1, 2}, {3, 4}, {5, 6}};
-DaneJoe::to_string(matrix);  // "[[1, 2], [3, 4], [5, 6]]"
-
-// Map 容器
-std::map<std::string, int> scores{{"alice", 95}, {"bob", 87}};
-DaneJoe::to_string(scores);  // "[{alice:95}, {bob:87}]"
 ```
 
 #### 指针数组支持
@@ -329,9 +321,6 @@ int main() {
 #define LOG_DEBUG(msg, ...) \
     std::cout << "[DEBUG] " << msg << " " << DaneJoe::to_string(__VA_ARGS__) << "\n"
 
-std::map<std::string, int> config{{"timeout", 30}, {"retry", 3}};
-LOG_DEBUG("Config loaded:", config);
-// 输出: [DEBUG] Config loaded: [{timeout:30}, {retry:3}]
 ```
 
 ### 示例3: 单元测试辅助
