@@ -14,10 +14,10 @@
 
 ### 核心技术栈
 - **C++23**: 使用最新 C++ 标准特性
-- **FFmpeg**: 视频解码（H.264/H.265 等）
-- **SDL2**: 跨平台音视频渲染
-- **Qt6**: 现代化的 GUI 界面
-- **CMake**: 工程化构建系统
+- **Qt6 模块**: Core / Widgets / OpenGL / OpenGLWidgets
+- **SDL2**: 跨平台音视频渲染（使用 CONFIG 模式查找）
+- **FFmpeg**: 视频解码（H.264/H.265 等，`find_package(FFMPEG REQUIRED)`）
+- **CMake ≥ 3.20**: 工程化构建系统
 
 ### 架构设计
 
@@ -187,9 +187,9 @@ FetchContent_Declare(DaneJoeLogger
 ### 环境要求
 - CMake ≥ 3.20
 - C++23 兼容编译器（GCC 11+, Clang 14+, MSVC 2022+）
-- Qt6 (Core, Gui, Widgets)
-- FFmpeg 4.x/5.x
-- SDL2
+- Qt6 (Core, Widgets, OpenGL, OpenGLWidgets)
+- FFmpeg 4.x/5.x（提供 `include` 与 `lib`）
+- SDL2（通过包管理或系统安装，支持 `find_package(SDL2 CONFIG REQUIRED)`）
 
 ### 构建步骤
 
@@ -200,8 +200,26 @@ cmake -B build -DCMAKE_BUILD_TYPE=Release
 # 编译
 cmake --build build -j
 
-# 运行
+# 运行（目标名与源码一致）
 ./build/cpp_exercise_qt_sdl
+
+```
+
+## 基于源码的构建配置要点
+
+- **自动处理 Qt 元对象**：开启 `CMAKE_AUTOMOC/AUTORCC/AUTOUIC`，无需手动 moc/rcc/uic。
+- **MSVC 兼容性**：在 Windows/MSVC 下启用 `/utf-8`，并定义 `_CRT_SECURE_NO_WARNINGS`。
+- **可复用编译数据库**：开启 `CMAKE_EXPORT_COMPILE_COMMANDS` 并在构建后复制到源码根，便于 IDE/工具链使用。
+- **目标与源文件组织**：
+  - 目标名：`cpp_exercise_qt_sdl`
+  - 源码分层：`source/renderer/*.cpp`、`source/util/*.cpp`、`source/codec/*.cpp`、`source/view/*.cpp`、`source/main/*.cpp`
+  - 头文件示例：`include/view/*.hpp`
+  - 资源文件：`resource/*.qrc`
+- **三方库对接**：
+  - FFmpeg：`target_include_directories(... ${FFMPEG_INCLUDE_DIRS})` 与 `${FFMPEG_LIBRARIES}` 链接
+  - SDL2：优先 `SDL2::SDL2`（存在则用，否则回退 `SDL2::SDL2-static`），并兼容 `SDL2::SDL2main`
+  - Qt6：链接 `Qt6::Core`、`Qt6::Widgets`、`Qt6::OpenGL`、`Qt6::OpenGLWidgets`
+- **自研库集成**：通过 `FetchContent` 拉取 `danejoe::stringify`、`danejoe::logger`、`danejoe::concurrent` 三个目标并链接。
 ```
 
 ## 项目演示

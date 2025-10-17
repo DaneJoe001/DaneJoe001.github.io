@@ -259,6 +259,16 @@ add_executable(MyApp main.cpp)
 target_link_libraries(MyApp PRIVATE danejoe::concurrent)
 ```
 
+## 基于源码的构建配置要点
+
+- **项目与版本**：`project(DaneJoeConcurrent VERSION 1.0.0 LANGUAGES CXX)`。
+- **库目标**：实现目标 `danejoe_concurrent`，对外别名 `danejoe::concurrent`。
+- **标准声明**：`target_compile_features(danejoe_concurrent PUBLIC cxx_std_17)`（消费者可用更高标准）。
+- **公共头路径**：构建树与安装树分别通过 `BUILD_INTERFACE`/`INSTALL_INTERFACE` 暴露。
+- **版本头生成**：`include/version/concurrent_version.h.in` → 生成到构建树 `include/version/concurrent_version.h`。
+- **可选项**：`DANEJOE_concurrent_BUILD_TESTS=OFF`（默认）、`BUILD_SHARED_LIBS=OFF`（默认静态）。
+- **安装与导出**：使用 `GNUInstallDirs` 与自定义 `danejoe_install_export()` 导出 `DaneJoeConcurrent` 包，命名空间 `danejoe::`，方便 `find_package()`。
+
 ### 方式2: 子目录
 
 ```cmake

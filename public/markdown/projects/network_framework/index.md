@@ -92,17 +92,18 @@
 
 ## 技术栈
 
-### 核心技术
-- **C++20**: 协程、模块、概念等现代特性
-- **CMake**: 工程化构建，FetchContent 依赖管理
-- **Qt6**: Core / Gui / Widgets
-- **POSIX Socket**: 原生 Linux 网络编程
-- **epoll**: 高性能 I/O 多路复用
+### 核心技术（以源码为准）
+- **C++20**: 标准设置 `set(CMAKE_CXX_STANDARD 20)`
+- **CMake ≥ 3.20**: 自动开启 `CMAKE_AUTOMOC/AUTORCC/AUTOUIC` 与 `CMAKE_EXPORT_COMPILE_COMMANDS`
+- **Qt6**: Core / Gui / Widgets（`find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)`）
+- **OpenSSL**: `find_package(OpenSSL REQUIRED)` 链接 `OpenSSL::SSL` 和 `OpenSSL::Crypto`
+- **SQLiteCpp**: 通过 `add_subdirectory(...)` 引入（当前为绝对路径方式，后续可改 `FetchContent`）
+- **POSIX Socket + epoll**: 原生 Linux 网络编程（见 `include/common/network/` 与 `source/common/network/`）
 
 ### 第三方库
-- **OpenSSL**: TLS 加密（规划中）
-- **SQLite / SQLiteCpp**: 数据持久化
-- **自研库**: DaneJoeLogger / DaneJoeConcurrent / DaneJoeStringify
+- **OpenSSL**: TLS 能力（已在构建中链接）
+- **SQLite / SQLiteCpp**: 数据持久化（通过 `add_subdirectory`）
+- **自研库**: 可按需接入（当前构建脚本未直接链接）
 
 ## 项目结构
 
@@ -282,20 +283,32 @@ void write_integer(T value) {
 
 ### 环境要求
 - CMake ≥ 3.20
-- C++20 编译器
+- C++20 编译器（GCC/Clang/MSVC）
 - Qt6 (Core, Gui, Widgets)
-- OpenSSL
-- SQLite / SQLiteCpp
+- OpenSSL（SSL 与 Crypto 组件）
+- SQLite / SQLiteCpp（本地可用，或改为 FetchContent）
 
-### 构建步骤
+### 构建步骤（生成 client/server 两个可执行程序）
 
 ```bash
 # 构建 Release 版本
 cmake -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j
 
-# 生成可执行文件: build/server, build/client
+# 生成可执行文件：`build/client` 与 `build/server`
 ```
+
+## 基于源码的构建配置要点
+
+- **目标划分**：`BUILD_CLIENT` 与 `BUILD_SERVER` 开关控制两个目标的生成，默认均为 on。
+- **源码组织**：
+  - Client 源码：`source/client/{connect,main,model,repository,service,view}/*.cpp`
+  - Server 源码：`source/server/{connect,main,model,repository,service,view}/*.cpp`
+  - 公共模块：`source/common/{network,database,util,protocol,log,mt_queue}/*.cpp`
+  - 头文件：`include/client/...`、`include/server/...`、`include/common/...`
+- **Qt 集成**：启用 `AUTOMOC/AUTORCC/AUTOUIC`，链接 `Qt6::Core/Gui/Widgets`。
+- **安全与加密**：链接 `OpenSSL::SSL`、`OpenSSL::Crypto`，便于后续启用 TLS。
+- **数据库支持**：引入 `SQLiteCpp`（目前通过绝对路径 `add_subdirectory`，建议后续改为 `FetchContent` 或 `find_package`）。
 
 ### 运行示例
 
