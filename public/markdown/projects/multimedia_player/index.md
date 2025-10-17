@@ -6,6 +6,10 @@
 
 这是一个功能完善的多媒体播放器项目，采用现代 C++ 技术栈，实现了视频解码、渲染和播放的完整流程。项目展示了对多媒体处理框架的深入理解，以及对 Qt GUI 开发的熟练掌握。
 
+## GitHub 仓库
+
+🔗 **开源地址**: [https://github.com/DaneJoe001/ProjectMultimediaPlayer](https://github.com/DaneJoe001/ProjectMultimediaPlayer)
+
 ## 技术亮点
 
 ### 核心技术栈
@@ -233,7 +237,7 @@ cmake --build build -j
 
 ## 相关资源
 
-- 📦 **源代码**: 本地项目目录
+- 📦 **GitHub**: [ProjectMultimediaPlayer](https://github.com/DaneJoe001/ProjectMultimediaPlayer)
 - 📖 **技术文档**: [YUV格式解析](./document/)
 - 🔧 **依赖库**: [DaneJoeLogger](https://github.com/DaneJoe001/DaneJoeLogger) | [DaneJoeStringify](https://github.com/DaneJoe001/DaneJoeStringify)
 
