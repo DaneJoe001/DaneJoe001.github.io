@@ -195,12 +195,13 @@
 }
 
 .markdown-content img {
-  max-width: 100%;
+  max-width: 860px;
+  width: 100%;
   height: auto; /* 保持图片比例 */
   box-sizing: border-box;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin: 0.8em 0;
+  margin: 0.8em auto;
   display: block; /* 块级显示以避免行内问题 */
 }
 
@@ -222,7 +223,8 @@
 }
 
 .markdown-image {
-  max-width: 100%;
+  max-width: 860px;
+  width: 100%;
   height: auto;
   display: block;
   margin: 0.8em auto;

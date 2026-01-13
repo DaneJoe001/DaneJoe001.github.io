@@ -510,21 +510,15 @@ export default {
             mdFilePath = '/markdown/notes/qt/index.md';
           }
         } else if (this.category === 'projects') {
-          if (this.content === 'multimedia_player') {
-            this.title = '多媒体播放器';
-            mdFilePath = '/markdown/projects/multimedia_player/index.md';
-          } else if (this.content === 'network_framework') {
-            this.title = '网络传输框架';
-            mdFilePath = '/markdown/projects/network_framework/index.md';
-          } else if (this.content === 'concurrent_library') {
-            this.title = '并发容器库';
-            mdFilePath = '/markdown/projects/concurrent_library/index.md';
-          } else if (this.content === 'logger_library') {
-            this.title = '异步日志库';
-            mdFilePath = '/markdown/projects/logger_library/index.md';
-          } else if (this.content === 'stringify_library') {
-            this.title = '字符串化库';
-            mdFilePath = '/markdown/projects/stringify_library/index.md';
+          if (this.content === 'danejoe_library') {
+            this.title = 'DaneJoeLibrary';
+            mdFilePath = '/markdown/projects/danejoe_library/index.md';
+          } else if (this.content === 'project_trans') {
+            this.title = 'ProjectTrans';
+            mdFilePath = '/markdown/projects/project_trans/index.md';
+          } else if (this.content === 'project_multimedia') {
+            this.title = 'ProjectMultimedia';
+            mdFilePath = '/markdown/projects/project_multimedia/index.md';
           }
         }
         

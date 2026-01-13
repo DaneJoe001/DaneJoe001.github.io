@@ -44,25 +44,17 @@
       </div>
       
       <div class="submenu" :class="{ open: openSubmenus.includes('projects') && !isCollapsed }">
-        <div class="menu-item" @click="selectContent('projects', 'multimedia_player')" :class="{ active: activeContent === 'multimedia_player' }">
-          <i class="fa fa-play-circle"></i>
-          <span v-if="!isCollapsed">多媒体播放器</span>
+        <div class="menu-item" @click="selectContent('projects', 'danejoe_library')" :class="{ active: activeContent === 'danejoe_library' }">
+          <i class="fa fa-cubes"></i>
+          <span v-if="!isCollapsed">DaneJoeLibrary</span>
         </div>
-        <div class="menu-item" @click="selectContent('projects', 'network_framework')" :class="{ active: activeContent === 'network_framework' }">
+        <div class="menu-item" @click="selectContent('projects', 'project_trans')" :class="{ active: activeContent === 'project_trans' }">
           <i class="fa fa-exchange"></i>
-          <span v-if="!isCollapsed">网络传输框架</span>
+          <span v-if="!isCollapsed">ProjectTrans</span>
         </div>
-        <div class="menu-item" @click="selectContent('projects', 'concurrent_library')" :class="{ active: activeContent === 'concurrent_library' }">
-          <i class="fa fa-tasks"></i>
-          <span v-if="!isCollapsed">并发容器库</span>
-        </div>
-        <div class="menu-item" @click="selectContent('projects', 'logger_library')" :class="{ active: activeContent === 'logger_library' }">
-          <i class="fa fa-file-text-o"></i>
-          <span v-if="!isCollapsed">异步日志库</span>
-        </div>
-        <div class="menu-item" @click="selectContent('projects', 'stringify_library')" :class="{ active: activeContent === 'stringify_library' }">
-          <i class="fa fa-font"></i>
-          <span v-if="!isCollapsed">字符串化库</span>
+        <div class="menu-item" @click="selectContent('projects', 'project_multimedia')" :class="{ active: activeContent === 'project_multimedia' }">
+          <i class="fa fa-play-circle"></i>
+          <span v-if="!isCollapsed">ProjectMultimedia</span>
         </div>
       </div>
       
